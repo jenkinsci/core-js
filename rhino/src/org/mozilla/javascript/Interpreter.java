@@ -50,6 +50,7 @@ import java.io.PrintStream;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.mozilla.javascript.continuations.Continuation;
 import org.mozilla.javascript.debug.DebugFrame;
@@ -2441,7 +2442,40 @@ public class Interpreter implements Evaluator
         }
         return list;
     }
-        
+
+    public List<List<StackTraceElement>> buildScriptStack(RhinoException ex) {
+        if (ex.interpreterStackInfo == null) {
+            return Collections.emptyList();
+        }
+
+        List<List<StackTraceElement>> list = new ArrayList<List<StackTraceElement>>();
+
+        CallFrame[] array = (CallFrame[])ex.interpreterStackInfo;
+        int[] linePC = ex.interpreterLineData;
+        int arrayIndex = array.length;
+        int linePCIndex = linePC.length;
+        while (arrayIndex != 0) {
+            --arrayIndex;
+            List<StackTraceElement> sb = new ArrayList<StackTraceElement>();
+            CallFrame frame = array[arrayIndex];
+            while (frame != null) {
+                if (linePCIndex == 0) Kit.codeBug();
+                --linePCIndex;
+                InterpreterData idata = frame.idata;
+
+                int pc = linePC[linePCIndex];
+                sb.add(new StackTraceElement("script",
+                        idata.itsName!=null?idata.itsName:"",
+                        idata.itsSourceFile,
+                        pc>=0 ? getIndex(idata.itsICode, pc) : -1 ));
+
+                frame = frame.parentFrame;
+            }
+            list.add(sb);
+        }
+        return list;
+    }
+
     static String getEncodedSource(InterpreterData idata)
     {
         if (idata.encodedSource == null) {

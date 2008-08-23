@@ -71,6 +71,13 @@ public class JavaScriptException extends RhinoException
     {
         recordErrorOrigin(sourceName, lineNumber, null, 0);
         this.value = value;
+
+        // if JavaScriptException is caused by a NativeError, link that as a nested exception
+        if (value instanceof NativeError) {
+            Object src = ScriptableObject.getProperty((NativeError) value, "at");
+            if (src instanceof Throwable)
+                initCause((Throwable) src);
+        }
     }
 
     @Override

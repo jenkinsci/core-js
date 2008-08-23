@@ -73,6 +73,10 @@ public class Codegen implements Evaluator
         throw new UnsupportedOperationException();
     }
 
+    public List<List<StackTraceElement>> buildScriptStack(RhinoException ex) {
+        throw new UnsupportedOperationException();
+    }
+
     public void setEvalScriptFlag(Script script) {
         throw new UnsupportedOperationException();
     }

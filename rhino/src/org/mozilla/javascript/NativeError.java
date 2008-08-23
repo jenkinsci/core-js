@@ -95,6 +95,10 @@ final class NativeError extends IdScriptableObject
                 ScriptableObject.putProperty(obj, "fileName", fileName);
             }
         }
+        // remember where this NativeError is thrown
+        ScriptableObject.putProperty(obj,"at",new RhinoException(
+                ScriptableObject.getProperty(obj,"message").toString()
+        ){});
         return obj;
     }
 

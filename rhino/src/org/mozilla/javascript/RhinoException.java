@@ -47,6 +47,7 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * The class of exceptions thrown by the JavaScript engine.
@@ -58,6 +59,7 @@ public abstract class RhinoException extends RuntimeException
         Evaluator e = Context.createInterpreter();
         if (e != null)
             e.captureStackInfo(this);
+        overwriteStackTrace();
     }
 
     RhinoException(String details)
@@ -66,6 +68,7 @@ public abstract class RhinoException extends RuntimeException
         Evaluator e = Context.createInterpreter();
         if (e != null)
             e.captureStackInfo(this);
+        overwriteStackTrace();
     }
 
     @Override
@@ -277,6 +280,36 @@ public abstract class RhinoException extends RuntimeException
             }
         }
         return buffer.toString();
+    }
+
+    /**
+     * Calls {@link #setStackTrace(StackTraceElement[])} to claim
+     * the stack trace that include scripts
+     */
+    private void overwriteStackTrace() {
+        List<List<StackTraceElement>> interpreterStack;
+        Evaluator interpreter = Context.createInterpreter();
+        if (interpreter != null)
+            interpreterStack = interpreter.buildScriptStack(this);
+        else
+            interpreterStack = Collections.emptyList();
+        int interpreterStackIndex = 0;
+
+        List<StackTraceElement> newStacks = new ArrayList<StackTraceElement>();
+        StackTraceElement[] stack = getStackTrace();
+        for (int i = 0; i < stack.length; i++) {
+            StackTraceElement e = stack[i];
+            if (interpreterStack != null &&
+                "org.mozilla.javascript.Interpreter".equals(e.getClassName()) &&
+                "interpretLoop".equals(e.getMethodName()))
+            {
+                newStacks.addAll(interpreterStack.get(interpreterStackIndex++));
+            } else {
+                newStacks.add(e);
+            }
+        }
+
+        setStackTrace(newStacks.toArray(new StackTraceElement[newStacks.size()]));
     }
 
     @Override
