@@ -68,6 +68,10 @@ public class WrappedException extends EvaluatorException
         if (lineNumber != 0) {
             initLineNumber(lineNumber);
         }
+
+        // fix up the stack trace of chained exceptions
+        for(Throwable t=getCause(); t!=null; t=t.getCause())
+            overwriteStackTrace(t);
     }
 
     /**

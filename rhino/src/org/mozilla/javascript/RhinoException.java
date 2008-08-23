@@ -59,7 +59,7 @@ public abstract class RhinoException extends RuntimeException
         Evaluator e = Context.createInterpreter();
         if (e != null)
             e.captureStackInfo(this);
-        overwriteStackTrace();
+        overwriteStackTrace(this);
     }
 
     RhinoException(String details)
@@ -68,7 +68,7 @@ public abstract class RhinoException extends RuntimeException
         Evaluator e = Context.createInterpreter();
         if (e != null)
             e.captureStackInfo(this);
-        overwriteStackTrace();
+        overwriteStackTrace(this);
     }
 
     @Override
@@ -286,7 +286,7 @@ public abstract class RhinoException extends RuntimeException
      * Calls {@link #setStackTrace(StackTraceElement[])} to claim
      * the stack trace that include scripts
      */
-    private void overwriteStackTrace() {
+    protected void overwriteStackTrace(Throwable target) {
         List<List<StackTraceElement>> interpreterStack;
         Evaluator interpreter = Context.createInterpreter();
         if (interpreter != null)
@@ -296,7 +296,7 @@ public abstract class RhinoException extends RuntimeException
         int interpreterStackIndex = 0;
 
         List<StackTraceElement> newStacks = new ArrayList<StackTraceElement>();
-        StackTraceElement[] stack = getStackTrace();
+        StackTraceElement[] stack = target.getStackTrace();
         for (int i = 0; i < stack.length; i++) {
             StackTraceElement e = stack[i];
             if (interpreterStack != null &&
@@ -309,7 +309,7 @@ public abstract class RhinoException extends RuntimeException
             }
         }
 
-        setStackTrace(newStacks.toArray(new StackTraceElement[newStacks.size()]));
+        target.setStackTrace(newStacks.toArray(new StackTraceElement[newStacks.size()]));
     }
 
     @Override
