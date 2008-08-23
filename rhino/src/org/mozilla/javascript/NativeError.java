@@ -96,10 +96,26 @@ final class NativeError extends IdScriptableObject
             }
         }
         // remember where this NativeError is thrown
-        ScriptableObject.putProperty(obj,"at",new RhinoException(
-                ScriptableObject.getProperty(obj,"message").toString()
-        ){});
+        ScriptableObject.putProperty(obj,"at", obj.new NativeErrorException());
         return obj;
+    }
+
+    private class NativeErrorException extends RhinoException {
+        public NativeErrorException() {
+            super(ScriptableObject.getProperty(NativeError.this, "message").toString());
+        }
+
+        /**
+         * This is set after the make method is called, so we can't do this eagerly.
+         */
+        public Throwable getCause() {
+            Object javaException = ScriptableObject.getProperty(NativeError.this, "javaException");
+            if (javaException instanceof NativeJavaObject) {
+                NativeJavaObject njo = (NativeJavaObject) javaException;
+                return (Throwable)njo.unwrap();
+            }
+            return super.getCause();
+        }
     }
 
     @Override

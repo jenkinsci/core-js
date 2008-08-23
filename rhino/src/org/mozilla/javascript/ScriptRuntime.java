@@ -3166,7 +3166,8 @@ public class ScriptRuntime {
             } else if (t instanceof WrappedException) {
                 WrappedException we = (WrappedException)t;
                 re = we;
-                javaException = we.getWrappedException();
+                // script stack trace captured in WrappedException is very useful. Don't unwrap.
+                javaException = we; // we.getWrappedException();
                 errorName = "JavaException";
                 errorMsg = javaException.getClass().getName()
                            +": "+javaException.getMessage();
