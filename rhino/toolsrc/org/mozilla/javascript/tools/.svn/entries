@@ -1,0 +1,80 @@
+9
+
+dir
+3197
+https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools
+https://htmlunit.svn.sourceforge.net/svnroot/htmlunit
+
+
+
+2008-04-08T08:03:34.214957Z
+2848
+mguillem
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+797ba2fd-6919-0410-a55a-8c1f0daf9432
+
+jsc
+dir
+
+debugger
+dir
+
+shell
+dir
+
+resources
+dir
+
+ToolErrorReporter.java
+file
+
+
+
+
+2008-08-23T06:05:49.000000Z
+6f4720b6a99fa96577704f85654105d5
+2008-04-08T08:03:34.214957Z
+2848
+mguillem
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7872
+
+CVS
+dir
+
+idswitch
+dir
+

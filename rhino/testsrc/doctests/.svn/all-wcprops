@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/doctests
+END
+canonicalize.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/doctests/canonicalize.doctest
+END
+test2.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/doctests/test2.doctest
+END
+tail-call-in-try.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/doctests/tail-call-in-try.doctest
+END
+iterable.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/doctests/iterable.doctest
+END
+413838.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/doctests/413838.doctest
+END

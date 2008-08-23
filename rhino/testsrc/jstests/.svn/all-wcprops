@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/jstests
+END
+420012.jstest
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/jstests/420012.jstest
+END
+destructuringLvalue.jstest
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/jstests/destructuringLvalue.jstest
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/debug
+END
+DebugFrame.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/debug/DebugFrame.java
+END
+Debugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/debug/Debugger.java
+END
+DebuggableScript.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/debug/DebuggableScript.java
+END
+DebuggableObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/debug/DebuggableObject.java
+END

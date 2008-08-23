@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/htmlunit/!svn/ver/2861/trunk/core-js/src/net/sourceforge/htmlunit
+END
+RhinoPatchedRunner.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/htmlunit/!svn/ver/2854/trunk/core-js/src/net/sourceforge/htmlunit/RhinoPatchedRunner.java
+END
+PropertiesOrderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/htmlunit/!svn/ver/2860/trunk/core-js/src/net/sourceforge/htmlunit/PropertiesOrderTest.java
+END
+Utilities.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/htmlunit/!svn/ver/2860/trunk/core-js/src/net/sourceforge/htmlunit/Utilities.java
+END
+RegExpUnescapedSlashTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/htmlunit/!svn/ver/2861/trunk/core-js/src/net/sourceforge/htmlunit/RegExpUnescapedSlashTest.java
+END

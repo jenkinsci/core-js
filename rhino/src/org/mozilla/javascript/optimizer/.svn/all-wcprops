@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/optimizer
+END
+ClassCompiler.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/optimizer/ClassCompiler.java
+END
+Optimizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/optimizer/Optimizer.java
+END
+Codegen.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/optimizer/Codegen.java
+END
+OptTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/optimizer/OptTransformer.java
+END
+OptRuntime.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/optimizer/OptRuntime.java
+END
+Block.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/optimizer/Block.java
+END
+DataFlowBitSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/optimizer/DataFlowBitSet.java
+END
+OptFunctionNode.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/optimizer/OptFunctionNode.java
+END

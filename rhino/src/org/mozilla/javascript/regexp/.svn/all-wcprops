@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/regexp
+END
+SubString.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/regexp/SubString.java
+END
+NativeRegExp.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/regexp/NativeRegExp.java
+END
+NativeRegExpCtor.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/regexp/NativeRegExpCtor.java
+END
+RegExpImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/regexp/RegExpImpl.java
+END

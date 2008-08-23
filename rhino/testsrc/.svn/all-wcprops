@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc
+END
+base.skip
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/base.skip
+END
+opt1.skip
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/opt1.skip
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/build.xml
+END

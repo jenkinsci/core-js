@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/xml/impl/xmlbeans
+END
+XML.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/xml/impl/xmlbeans/XML.java
+END
+QName.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/xml/impl/xmlbeans/QName.java
+END
+XMLName.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/xml/impl/xmlbeans/XMLName.java
+END
+XMLWithScope.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/xml/impl/xmlbeans/XMLWithScope.java
+END
+LogicalEquality.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/xml/impl/xmlbeans/LogicalEquality.java
+END
+XMLCtor.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/xml/impl/xmlbeans/XMLCtor.java
+END
+XMLLibImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/xml/impl/xmlbeans/XMLLibImpl.java
+END
+XMLObjectImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/xml/impl/xmlbeans/XMLObjectImpl.java
+END
+Namespace.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/xml/impl/xmlbeans/Namespace.java
+END
+NamespaceHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/xml/impl/xmlbeans/NamespaceHelper.java
+END
+XMLList.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/xml/impl/xmlbeans/XMLList.java
+END

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ====================================================================== 
+
+htmlunit-core-js is a Rhino fork containing patches that haven't yet been
+applied in Rhino but that are needed for HtmlUnit.
+
+The build file ensures that no patch is kept when it is not needed anymore.
+
+CAUTION: before to release, the rhinoDiff.txt need to be generated to respect 
+the terms of the MPL.
+
+Marc Guillemot                                                                
+====================================================================== -->
+<project default="default" xmlns:artifact="urn:maven-artifact-ant">
+	<property name="test.classes" location="target/test-classes" />
+	<property name="test.src" location="src" />
+	<property name="patchedRhino.classes" location="target/rhino-patched-classes" />
+	<property name="patchedRhino.src" location="rhino/src" />
+	<property name="originalRhino.classes" location="target/rhino-original-classes" />
+	<property name="src.test.dir" location="src" />
+	<property name="junit.jar" location="lib/junit-4.4.jar" />
+	
+	<property name="version" value="2.2"/>
+	<property name="jar" location="target/htmlunit-core-js-${version}.jar" />
+	<property name="jar.sources" location="target/htmlunit-core-js-${version}-sources.jar" />
+	
+	<property name="rhino.base.date" value="20080408" description="the date of the Rhino version we take as basis. Used to generate the diff"/>
+
+	<target name="default" depends="test, checkPatchNeeded">
+
+	</target>
+
+	<target name="compile" description="--> description">
+		<mkdir dir="${patchedRhino.classes}" />
+		<ant dir="rhino" antfile="src/build.xml" target="compile">
+			<property name="classes" value="${patchedRhino.classes}" />
+		</ant>
+		<mkdir dir="${test.classes}" />
+		<javac destdir='${test.classes}' debug='true' encoding="ISO-8859-1" source='1.5' target='1.5' includeAntRuntime='false'>
+			<classpath>
+				<pathelement location='${junit.jar}' />
+				<pathelement location='${patchedRhino.classes}' />
+			</classpath>
+			<src path='${test.src}' />
+		</javac>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="test" depends="compile" description="run the JUnit tests">
+		<runTests rhinoClasses="${patchedRhino.classes}" rhinoVersion="patched" />
+	</target>
+
+	<macrodef name="runTests">
+		<attribute name="rhinoClasses" />
+		<attribute name="rhinoVersion" />
+		<sequential>
+			<echo message="Running tests against Rhino @{rhinoVersion} (@{rhinoClasses})" />
+			<mkdir dir="target/junit" />
+			<junit fork="yes">
+				<jvmarg value="-Drhino=@{rhinoVersion}" />
+				<classpath>
+					<pathelement path="@{rhinoClasses}" />
+					<pathelement path="${test.classes}" />
+					<pathelement location="${junit.jar}" />
+				</classpath>
+				<batchtest todir="target/junit">
+					<fileset dir="${src.test.dir}">
+						<include name="**/*Test.java" />
+					</fileset>
+				</batchtest>
+				<formatter type="plain" />
+			</junit>
+		</sequential>
+	</macrodef>
+
+	<target name="checkPatchNeeded" depends="updateRhinoOriginal" description="checks that the pb are not yet fixed in Rhino and the patches still needed">
+		<mkdir dir="${originalRhino.classes}" />
+		<ant dir="rhino_original/mozilla/js/rhino" antfile="src/build.xml" target="compile">
+			<property name="classes" value="${originalRhino.classes}" />
+		</ant>
+		<runTests rhinoClasses="${originalRhino.classes}" rhinoVersion="original" />
+	</target>
+
+	<target name="updateRhinoOriginal" unless="updateRhinoOriginal.skip">
+		<mkdir dir="rhino_original" />
+		<cvs cvsRoot=":pserver:anonymous:anonymous@cvs-mirror.mozilla.org:/cvsroot" package="mozilla/js/rhino" dest="rhino_original" failonerror="true" />
+	</target>
+
+	<target name="generateRhinoDiff">
+		<echo message="Generating diff to rhinoDiff.txt"/>
+		<cvs command="diff -u -N -D${rhino.base.date}" output="rhinoDiff.txt" dest="rhino/src" failonerror="false" />
+		<echo message="Don't forget to clean the generated diff (for instance removing all lines with .svn)"/>
+	</target>
+
+	<target name="jar-all" depends="compile">
+	 	<jar destfile="${jar.sources}">
+		    <fileset dir='${patchedRhino.src}'>
+				<include name="org/mozilla/**/*"/>
+		    </fileset>
+		    <fileset dir='.'>
+				<include name="rhinoDiff.txt"/>
+		    </fileset>
+		</jar>
+	 	<jar destfile="${jar}">
+		    <fileset dir='${patchedRhino.classes}' />
+		    <fileset dir='.'>
+				<include name="rhinoDiff.txt"/>
+		    </fileset>
+		</jar>
+	</target>
+	
+	<target name="deploy-snapshot" depends="jar-all" description="Deploys a snapshot to HTMLUnit snapshot repository">
+		<path id="maven-ant-tasks.classpath" path="lib/maven-ant-tasks-2.0.8.jar" />
+		<typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="urn:maven-artifact-ant"
+			classpathref="maven-ant-tasks.classpath" />
+		<artifact:pom id="maven.project" file="pom.xml" />
+		<artifact:install-provider artifactId="wagon-ssh" version="1.0-beta-2"/>
+		<artifact:deploy file="${jar}">
+			<pom refid="maven.project"/>
+			<attach file="${jar.sources}" classifier="sources" /> 
+		</artifact:deploy>
+	</target>
+
+	<target name="deploy-mvn-local" depends="jar-all" description="Deploys jars to a local folder">
+		<echo message="Deploying locally to ${deploy-mvn-local.dir}"/>
+		<path id="maven-ant-tasks.classpath" path="lib/maven-ant-tasks-2.0.8.jar" />
+		<typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="urn:maven-artifact-ant"
+			classpathref="maven-ant-tasks.classpath" />
+		<artifact:pom id="maven.project" file="pom.xml" />
+		<artifact:deploy file="${jar}">
+			<pom refid="maven.project"/>
+			<remoteRepository url="file://${deploy-mvn-local.dir}"/>
+			<attach file="${jar.sources}" classifier="sources" /> 
+		</artifact:deploy>
+	</target>
+</project>

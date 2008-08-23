@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/serialize
+END
+ScriptableInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/serialize/ScriptableInputStream.java
+END
+ScriptableOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/serialize/ScriptableOutputStream.java
+END

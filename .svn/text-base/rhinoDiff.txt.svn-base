@@ -1,0 +1,171 @@
+Index: org/mozilla/javascript/NativeGlobal.java
+===================================================================
+RCS file: /cvsroot/mozilla/js/rhino/src/org/mozilla/javascript/NativeGlobal.java,v
+retrieving revision 1.79
+diff -u -r1.79 NativeGlobal.java
+--- org/mozilla/javascript/NativeGlobal.java	11 May 2007 15:14:07 -0000	1.79
++++ org/mozilla/javascript/NativeGlobal.java	24 Jul 2008 11:52:00 -0000
+@@ -186,7 +186,7 @@
+                     return js_escape(args);
+ 
+                 case Id_eval:
+-                    return js_eval(cx, scope, args);
++                    return js_eval(cx, scope, thisObj, args);
+ 
+                 case Id_isFinite: {
+                     boolean result;
+@@ -504,8 +504,13 @@
+         return s;
+     }
+ 
+-    private Object js_eval(Context cx, Scriptable scope, Object[] args)
++    private Object js_eval(Context cx, Scriptable scope, Scriptable thisObj, Object[] args)
+     {
++        if (thisObj.getParentScope() == null) {
++            // We allow indirect calls to eval as long as the script will execute in
++            // the global scope.
++            return ScriptRuntime.evalSpecial(cx, scope, thisObj, args, "eval code", 1);
++        }
+         String m = ScriptRuntime.getMessage1("msg.cant.call.indirect", "eval");
+         throw NativeGlobal.constructError(cx, "EvalError", m, scope);
+     }
+Index: org/mozilla/javascript/ScriptableObject.java
+===================================================================
+RCS file: /cvsroot/mozilla/js/rhino/src/org/mozilla/javascript/ScriptableObject.java,v
+retrieving revision 1.130
+diff -u -r1.130 ScriptableObject.java
+--- org/mozilla/javascript/ScriptableObject.java	18 Mar 2008 15:10:18 -0000	1.130
++++ org/mozilla/javascript/ScriptableObject.java	24 Jul 2008 11:52:29 -0000
+@@ -138,6 +138,10 @@
+     // it indicates sealed object where ~count gives number of keys
+     private int count;
+ 
++    // gateways into the definition-order linked list of slots
++    private transient Slot firstAdded;
++    private transient Slot lastAdded;
++    
+     // cache; may be removed for smaller memory footprint
+     private transient Slot lastAccess = REMOVED;
+ 
+@@ -160,6 +164,8 @@
+         transient volatile byte wasDeleted;
+         volatile Object value;
+         transient volatile Slot next;
++        transient volatile Slot orderedNext; // next in linked list
++        transient volatile Slot orderedPrev; // prev in linked list
+ 
+         Slot(String name, int indexOrHash, int attributes)
+         {
+@@ -2054,7 +2060,11 @@
+             return true;
+         if (slot instanceof GetterSlot) {
+             Object setterObj = ((GetterSlot)slot).setter;
+-            if (setterObj != null) {
++            if (setterObj == null) {
++                // Odd case: Assignment to a property with only a getter 
++                // defined. The assignment cancels out the getter.
++                ((GetterSlot)slot).getter = null;
++            } else {
+                 Context cx = Context.getContext();
+                 if (setterObj instanceof MemberBox) {
+                     MemberBox nativeSetter = (MemberBox)setterObj;
+@@ -2239,6 +2249,16 @@
+                                     slot.getAttributes());
+                             newSlot.value = slot.value;
+                             newSlot.next = slot.next;
++                            // add new slot to linked list
++                            if(firstAdded == slot)
++                                firstAdded = newSlot;
++                            if(lastAdded == slot)
++                                lastAdded = newSlot;
++                            if(slot.orderedPrev != null)
++                                slot.orderedPrev.orderedNext = newSlot;
++                            if(slot.orderedNext != null)
++                                slot.orderedNext.orderedPrev = newSlot;
++                            // add new slot to hash table
+                             if (prev == slot) {
+                                 slotsLocalRef[insertPos] = newSlot;
+                             } else {
+@@ -2271,6 +2291,13 @@
+                 if (accessType == SLOT_MODIFY_CONST)
+                     newSlot.setAttributes(CONST);
+                 ++count;
++                // add new slot to linked list
++                newSlot.orderedPrev = lastAdded;
++                if(lastAdded != null)
++                    lastAdded.orderedNext = newSlot;
++                if(firstAdded == null)
++                    firstAdded = newSlot;
++                lastAdded = newSlot;
+                 addKnownAbsentSlot(slotsLocalRef, newSlot, insertPos);
+                 return newSlot;
+             }
+@@ -2300,7 +2327,15 @@
+                         } else {
+                             prev.next = slot.next;
+                         }
+-                        // Mark the slot as removed to handle a case when
++                        // remove slot from linked list
++                        if(firstAdded == slot)
++                            firstAdded = slot.orderedNext;
++                        if(lastAdded == slot)
++                            lastAdded = slot.orderedPrev;
++                        if(slot.orderedPrev != null)
++                            slot.orderedPrev.orderedNext = slot.orderedNext;
++                        if(slot.orderedNext != null)
++                            slot.orderedNext.orderedPrev = slot.orderedPrev;                        // Mark the slot as removed to handle a case when
+                         // another thread manages to put just removed slot
+                         // into lastAccess cache.
+                         slot.wasDeleted = (byte)1;
+@@ -2368,16 +2403,12 @@
+         if (s == null)
+             return a;
+         int c = 0;
+-        for (int i=0; i < s.length; i++) {
+-            Slot slot = s[i];
+-            while (slot != null) {
+-                if (getAll || (slot.getAttributes() & DONTENUM) == 0) {
+-                    if (c == 0)
+-                        a = new Object[s.length];
+-                    a[c++] = (slot.name != null ? (Object) slot.name
+-                              : new Integer(slot.indexOrHash));
+-                }
+-                slot = slot.next;
++        for(Slot slot = firstAdded; slot != null; slot = slot.orderedNext) {
++            if (getAll || (slot.getAttributes() & DONTENUM) == 0) {
++                if (c == 0)
++                    a = new Object[s.length];
++                a[c++] = (slot.name != null ? (Object) slot.name
++                          : new Integer(slot.indexOrHash));
+             }
+         }
+         if (c == a.length)
+Index: org/mozilla/javascript/TokenStream.java
+===================================================================
+RCS file: /cvsroot/mozilla/js/rhino/src/org/mozilla/javascript/TokenStream.java,v
+retrieving revision 1.68
+diff -u -r1.68 TokenStream.java
+--- org/mozilla/javascript/TokenStream.java	12 Jul 2007 15:09:18 -0000	1.68
++++ org/mozilla/javascript/TokenStream.java	24 Jul 2008 11:52:33 -0000
+@@ -876,12 +876,19 @@
+         }
+ 
+         int c;
+-        while ((c = getChar()) != '/') {
++        boolean unescapedSlashAccepted = false;
++        while ((c = getChar()) != '/' || unescapedSlashAccepted) {
+             if (c == '\n' || c == EOF_CHAR) {
+                 ungetChar(c);
+                 throw parser.reportError("msg.unterminated.re.lit");
+             }
+-            if (c == '\\') {
++        	if (c == '[') {
++        		unescapedSlashAccepted = true;
++        	}
++        	else if (c == ']') {
++        		unescapedSlashAccepted = false;
++        	}
++        	else if (c == '\\') {
+                 addToString(c);
+                 c = getChar();
+             }
