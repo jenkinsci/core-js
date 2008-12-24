@@ -3156,7 +3156,7 @@ public class ScriptRuntime {
             RhinoException re;
             String errorName;
             String errorMsg;
-            Throwable javaException = null;
+            Throwable javaException = t;
 
             if (t instanceof EcmaError) {
                 EcmaError ee = (EcmaError)t;
