@@ -37,8 +37,8 @@
             <configuration>
               <tasks>
                 <ant dir="." target="jar-all" />
-                <attachArtifact file="target/htmlunit-core-js-2.2.jar" />
-                <attachArtifact file="target/htmlunit-core-js-2.2-sources.jar" classifier="sources" type="jar"/>
+                <attachArtifact file="target/htmlunit-core-js-${project.version}.jar" />
+                <attachArtifact file="target/htmlunit-core-js-${project.version}-sources.jar" classifier="sources" type="jar"/>
               </tasks>
             </configuration>
           </execution>
