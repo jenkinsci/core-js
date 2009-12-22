@@ -2439,7 +2439,7 @@ public class Context
                 DebuggableScript dscript = (DebuggableScript)bytecode;
                 notifyDebugger_r(this, dscript, sourceString);
             } else {
-                throw new RuntimeException("NOT SUPPORTED");
+//                throw new RuntimeException("NOT SUPPORTED");
             }
         }
 
