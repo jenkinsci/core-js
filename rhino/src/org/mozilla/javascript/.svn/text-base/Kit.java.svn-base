@@ -149,43 +149,6 @@ public class Kit
     }
 
     /**
-     * Split string into array of strings using semicolon as string terminator
-     * (; after the last string is required).
-     */
-    public static String[] semicolonSplit(String s)
-    {
-        String[] array = null;
-        for (;;) {
-            // loop 2 times: first to count semicolons and then to fill array
-            int count = 0;
-            int cursor = 0;
-            for (;;) {
-                int next = s.indexOf(';', cursor);
-                if (next < 0) {
-                    break;
-                }
-                if (array != null) {
-                    array[count] = s.substring(cursor, next);
-                }
-                ++count;
-                cursor = next + 1;
-            }
-            // after the last semicolon
-            if (array == null) {
-                // array size counting state:
-                // check for required terminating ';'
-                if (cursor != s.length())
-                    throw new IllegalArgumentException();
-                array = new String[count];
-            } else {
-                // array filling state: stop the loop
-                break;
-            }
-        }
-        return array;
-    }
-
-    /**
      * If character <tt>c</tt> is a hexadecimal digit, return
      * <tt>accumulator</tt> * 16 plus corresponding
      * number. Otherise return -1.
@@ -488,5 +451,20 @@ public class Kit
         ex.printStackTrace(System.err);
         throw ex;
     }
-}
 
+    /**
+     * Throws RuntimeException to indicate failed assertion.
+     * The function never returns and its return type is RuntimeException
+     * only to be able to write <tt>throw Kit.codeBug()</tt> if plain
+     * <tt>Kit.codeBug()</tt> triggers unreachable code error.
+     */
+    public static RuntimeException codeBug(String msg)
+        throws RuntimeException
+    {
+        msg = "FAILED ASSERTION: " + msg;
+        RuntimeException ex = new IllegalStateException(msg);
+        // Print stack trace ASAP
+        ex.printStackTrace(System.err);
+        throw ex;
+    }
+}

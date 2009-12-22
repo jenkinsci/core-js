@@ -1,11 +1,11 @@
 K 25
 svn:wc:ra_dav:version-url
-V 62
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc
+V 65
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc
 END
 build.xml
 K 25
 svn:wc:ra_dav:version-url
-V 72
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/build.xml
+V 75
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/build.xml
 END

@@ -1,41 +1,47 @@
 K 25
 svn:wc:ra_dav:version-url
-V 51
-/svnroot/htmlunit/!svn/ver/3148/trunk/core-js/rhino
+V 54
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/LICENSE.txt
 END
 README.html
 K 25
 svn:wc:ra_dav:version-url
-V 63
-/svnroot/htmlunit/!svn/ver/2850/trunk/core-js/rhino/README.html
+V 66
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/README.html
 END
 apiClasses.properties
 K 25
 svn:wc:ra_dav:version-url
-V 73
-/svnroot/htmlunit/!svn/ver/2850/trunk/core-js/rhino/apiClasses.properties
+V 76
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/apiClasses.properties
 END
 build-date
 K 25
 svn:wc:ra_dav:version-url
-V 62
-/svnroot/htmlunit/!svn/ver/2850/trunk/core-js/rhino/build-date
+V 65
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/build-date
 END
 build.properties
 K 25
 svn:wc:ra_dav:version-url
-V 68
-/svnroot/htmlunit/!svn/ver/2850/trunk/core-js/rhino/build.properties
+V 71
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/build.properties
 END
 .cvsignore
 K 25
 svn:wc:ra_dav:version-url
-V 62
-/svnroot/htmlunit/!svn/ver/2850/trunk/core-js/rhino/.cvsignore
+V 65
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/.cvsignore
 END
 build.xml
 K 25
 svn:wc:ra_dav:version-url
-V 61
-/svnroot/htmlunit/!svn/ver/2835/trunk/core-js/rhino/build.xml
+V 64
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/build.xml
 END

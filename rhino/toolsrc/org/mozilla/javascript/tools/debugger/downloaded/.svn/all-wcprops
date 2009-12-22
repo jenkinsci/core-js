@@ -1,35 +1,35 @@
 K 25
 svn:wc:ra_dav:version-url
-V 108
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/downloaded
+V 111
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/downloaded
 END
 JTreeTable.java
 K 25
 svn:wc:ra_dav:version-url
-V 124
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/downloaded/JTreeTable.java
+V 127
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/downloaded/JTreeTable.java
 END
 TreeTableModel.java
 K 25
 svn:wc:ra_dav:version-url
-V 128
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/downloaded/TreeTableModel.java
+V 131
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/downloaded/TreeTableModel.java
 END
 TreeTableModelAdapter.java
 K 25
 svn:wc:ra_dav:version-url
-V 135
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/downloaded/TreeTableModelAdapter.java
+V 138
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/downloaded/TreeTableModelAdapter.java
 END
 AbstractCellEditor.java
 K 25
 svn:wc:ra_dav:version-url
-V 132
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/downloaded/AbstractCellEditor.java
+V 135
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/downloaded/AbstractCellEditor.java
 END
 .cvsignore
 K 25
 svn:wc:ra_dav:version-url
-V 119
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/downloaded/.cvsignore
+V 122
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/downloaded/.cvsignore
 END

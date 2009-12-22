@@ -1,29 +1,71 @@
 K 25
 svn:wc:ra_dav:version-url
-V 74
-/svnroot/htmlunit/!svn/ver/2861/trunk/core-js/src/net/sourceforge/htmlunit
+V 77
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/src/net/sourceforge/htmlunit
+END
+Utils.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/src/net/sourceforge/htmlunit/Utils.java
 END
 RhinoPatchedRunner.java
 K 25
 svn:wc:ra_dav:version-url
+V 101
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/src/net/sourceforge/htmlunit/RhinoPatchedRunner.java
+END
+StackTraceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/src/net/sourceforge/htmlunit/StackTraceTest.java
+END
+ArrayConcatTest.java
+K 25
+svn:wc:ra_dav:version-url
 V 98
-/svnroot/htmlunit/!svn/ver/2854/trunk/core-js/src/net/sourceforge/htmlunit/RhinoPatchedRunner.java
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/src/net/sourceforge/htmlunit/ArrayConcatTest.java
+END
+ContextMethodsTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/src/net/sourceforge/htmlunit/ContextMethodsTest.java
+END
+PrimitiveTypeScopeResolutionTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/src/net/sourceforge/htmlunit/PrimitiveTypeScopeResolutionTest.java
 END
 PropertiesOrderTest.java
 K 25
 svn:wc:ra_dav:version-url
-V 99
-/svnroot/htmlunit/!svn/ver/2860/trunk/core-js/src/net/sourceforge/htmlunit/PropertiesOrderTest.java
+V 102
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/src/net/sourceforge/htmlunit/PropertiesOrderTest.java
 END
 Utilities.java
 K 25
 svn:wc:ra_dav:version-url
-V 89
-/svnroot/htmlunit/!svn/ver/2860/trunk/core-js/src/net/sourceforge/htmlunit/Utilities.java
+V 92
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/src/net/sourceforge/htmlunit/Utilities.java
+END
+UpperCaseHexTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/src/net/sourceforge/htmlunit/UpperCaseHexTest.java
 END
 RegExpUnescapedSlashTest.java
 K 25
 svn:wc:ra_dav:version-url
-V 104
-/svnroot/htmlunit/!svn/ver/2861/trunk/core-js/src/net/sourceforge/htmlunit/RegExpUnescapedSlashTest.java
+V 107
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/src/net/sourceforge/htmlunit/RegExpUnescapedSlashTest.java
+END
+WriteReadOnlyPropertyTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/src/net/sourceforge/htmlunit/WriteReadOnlyPropertyTest.java
 END

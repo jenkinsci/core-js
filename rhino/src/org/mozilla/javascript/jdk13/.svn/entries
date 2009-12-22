@@ -1,18 +1,18 @@
-9
+10
 
 dir
-3197
-https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/trunk/core-js/rhino/src/org/mozilla/javascript/jdk13
+5285
+https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/tags/core-js-2.6/rhino/src/org/mozilla/javascript/jdk13
 https://htmlunit.svn.sourceforge.net/svnroot/htmlunit
 
 
 
-2008-04-08T07:55:39.341028Z
-2845
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 
 
-svn:special svn:externals svn:needs-lock
+
 
 
 
@@ -35,10 +35,10 @@ file
 
 
 
-2008-08-23T06:11:19.000000Z
-8fce311207fdec7504356fc99ccbc5c2
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:42.000000Z
+870e4763750841a7dd222e3310cf2d1e
+2008-11-19T17:11:38.108303Z
+3785
 mguillem
 has-props
 
@@ -61,5 +61,5 @@ has-props
 
 
 
-5784
+5896
 

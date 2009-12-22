@@ -48,6 +48,9 @@ import java.io.*;
  */
 public class Shell extends ScriptableObject
 {
+    private static final long serialVersionUID = -5638074146250193112L;
+
+    @Override
     public String getClassName()
     {
         return "global";

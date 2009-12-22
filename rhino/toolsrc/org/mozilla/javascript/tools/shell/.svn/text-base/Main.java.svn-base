@@ -42,12 +42,29 @@
 
 package org.mozilla.javascript.tools.shell;
 
-import java.io.*;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.MalformedURLException;
-import java.util.*;
-import org.mozilla.javascript.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.UndeclaredThrowableException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.mozilla.javascript.Context;
+import org.mozilla.javascript.ContextAction;
+import org.mozilla.javascript.EvaluatorException;
+import org.mozilla.javascript.Function;
+import org.mozilla.javascript.GeneratedClassLoader;
+import org.mozilla.javascript.Kit;
+import org.mozilla.javascript.NativeArray;
+import org.mozilla.javascript.RhinoException;
+import org.mozilla.javascript.Script;
+import org.mozilla.javascript.Scriptable;
+import org.mozilla.javascript.ScriptableObject;
+import org.mozilla.javascript.SecurityController;
+import org.mozilla.javascript.tools.SourceReader;
 import org.mozilla.javascript.tools.ToolErrorReporter;
 
 /**
@@ -244,6 +261,15 @@ public class Main
                 shellContextFactory.setOptimizationLevel(opt);
                 continue;
             }
+            if (arg.equals("-encoding")) {
+                if (++i == args.length) {
+                    usageError = arg;
+                    break goodUsage;
+                }
+                String enc = args[i];
+                shellContextFactory.setCharacterEncoding(enc);
+                continue;
+            }
             if (arg.equals("-strict")) {
                 shellContextFactory.setStrictMode(true);
                 errorReporter.setIsReportingWarnings(true);
@@ -348,8 +374,21 @@ public class Main
             // Use the interpreter for interactive input
             cx.setOptimizationLevel(-1);
 
-            BufferedReader in = new BufferedReader
-                (new InputStreamReader(global.getIn()));
+            String charEnc = shellContextFactory.getCharacterEncoding();
+            if(charEnc == null)
+            {
+                charEnc = System.getProperty("file.encoding");
+            }
+            BufferedReader in;
+            try
+            {
+                in = new BufferedReader(new InputStreamReader(global.getIn(), 
+                        charEnc));
+            }
+            catch(UnsupportedEncodingException e)
+            {
+                throw new UndeclaredThrowableException(e);
+            }
             int lineno = 1;
             boolean hitEOF = false;
             while (!hitEOF) {
@@ -403,7 +442,6 @@ public class Main
         } else {
             processFile(cx, global, filename);
         }
-        System.gc();
     }
 
     public static void processFile(Context cx, Scriptable scope,
@@ -569,69 +607,13 @@ public class Main
      */
     private static Object readFileOrUrl(String path, boolean convertToString)
     {
-        URL url = null;
-        // Assume path is URL if it contains dot and there are at least
-        // 2 characters in the protocol part. The later allows under Windows
-        // to interpret paths with driver letter as file, not URL.
-        if (path.indexOf(':') >= 2) {
-            try {
-                url = new URL(path);
-            } catch (MalformedURLException ex) {
-            }
-        }
-
-        InputStream is = null;
-        int capacityHint = 0;
-        if (url == null) {
-            File file = new File(path);
-            capacityHint = (int)file.length();
-            try {
-                is = new FileInputStream(file);
-            } catch (IOException ex) {
-                Context.reportError(ToolErrorReporter.getMessage(
-                    "msg.couldnt.open", path));
-                return null;
-            }
-        } else {
-            try {
-                URLConnection uc = url.openConnection();
-                is = uc.getInputStream();
-                capacityHint = uc.getContentLength();
-                // Ignore insane values for Content-Length
-                if (capacityHint > (1 << 20)) {
-                    capacityHint = -1;
-                }
-            } catch (IOException ex) {
-                Context.reportError(ToolErrorReporter.getMessage(
-                    "msg.couldnt.open.url", url.toString(), ex.toString()));
-                return null;
-            }
-        }
-        if (capacityHint <= 0) {
-            capacityHint = 4096;
-        }
-
-        byte[] data;
         try {
-            try {
-                data = Kit.readStream(is, capacityHint);
-            } finally {
-                is.close();
-            }
+            return SourceReader.readFileOrUrl(path, convertToString, 
+                    shellContextFactory.getCharacterEncoding());
         } catch (IOException ex) {
-            Context.reportError(ex.toString());
+            Context.reportError(ToolErrorReporter.getMessage(
+                    "msg.couldnt.read.source", path, ex.getMessage()));
             return null;
         }
-
-        Object result;
-        if (!convertToString) {
-            result = data;
-        } else {
-            // Convert to String using the default encoding
-            // XXX: Use 'charset=' argument of Content-Type if URL?
-            result = new String(data);
-        }
-        return result;
     }
-
 }

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/es5
+END
+ObjectKeysTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/es5/ObjectKeysTest.java
+END
+ObjectGetOwnPropertyNamesTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/es5/ObjectGetOwnPropertyNamesTest.java
+END
+ObjectGetOwnPropertyDescriptorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/es5/ObjectGetOwnPropertyDescriptorTest.java
+END

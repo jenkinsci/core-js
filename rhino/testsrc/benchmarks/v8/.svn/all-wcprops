@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/benchmarks/v8
+END
+run.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/benchmarks/v8/run.js
+END
+splay.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/benchmarks/v8/splay.js
+END
+base.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/benchmarks/v8/base.js
+END
+raytrace.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/benchmarks/v8/raytrace.js
+END
+regexp.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/benchmarks/v8/regexp.js
+END
+earley-boyer.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/benchmarks/v8/earley-boyer.js
+END
+richards.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/benchmarks/v8/richards.js
+END
+crypto.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/benchmarks/v8/crypto.js
+END
+deltablue.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/benchmarks/v8/deltablue.js
+END

@@ -176,9 +176,21 @@ public class NativeRegExp extends IdScriptableObject implements Function
         ScriptRuntime.setObjectProtoAndParent(this, scope);
     }
 
+    @Override
     public String getClassName()
     {
         return "RegExp";
+    }
+
+    /**
+     * Gets the value to be returned by the typeof operator called on this object.
+     * @see org.mozilla.javascript.ScriptableObject#getTypeOf()
+     * @return "object"
+     */
+    @Override
+    public String getTypeOf()
+    {
+    	return "object";
     }
 
     public Object call(Context cx, Scriptable scope, Scriptable thisObj,
@@ -213,6 +225,7 @@ public class NativeRegExp extends IdScriptableObject implements Function
         return this;
     }
 
+    @Override
     public String toString()
     {
         StringBuffer buf = new StringBuffer();
@@ -2335,7 +2348,7 @@ System.out.println("Testing at " + gData.cp + ", op = " + op);
              * Define the index and input properties last for better for/in loop
              * order (so they come after the elements).
              */
-            obj.put("index", obj, new Integer(start + gData.skipped));
+            obj.put("index", obj, Integer.valueOf(start + gData.skipped));
             obj.put("input", obj, str);
         }
 
@@ -2412,11 +2425,13 @@ System.out.println("Testing at " + gData.cp + ", op = " + op);
 
         MAX_INSTANCE_ID = 5;
 
+    @Override
     protected int getMaxInstanceId()
     {
         return MAX_INSTANCE_ID;
     }
 
+    @Override
     protected int findInstanceIdInfo(String s)
     {
         int id;
@@ -2459,6 +2474,7 @@ System.out.println("Testing at " + gData.cp + ", op = " + op);
         return instanceIdInfo(attr, id);
     }
 
+    @Override
     protected String getInstanceIdName(int id)
     {
         switch (id) {
@@ -2471,6 +2487,7 @@ System.out.println("Testing at " + gData.cp + ", op = " + op);
         return super.getInstanceIdName(id);
     }
 
+    @Override
     protected Object getInstanceIdValue(int id)
     {
         switch (id) {
@@ -2488,6 +2505,7 @@ System.out.println("Testing at " + gData.cp + ", op = " + op);
         return super.getInstanceIdValue(id);
     }
 
+    @Override
     protected void setInstanceIdValue(int id, Object value)
     {
         if (id == Id_lastIndex) {
@@ -2497,6 +2515,7 @@ System.out.println("Testing at " + gData.cp + ", op = " + op);
         super.setInstanceIdValue(id, value);
     }
 
+    @Override
     protected void initPrototypeId(int id)
     {
         String s;
@@ -2513,6 +2532,7 @@ System.out.println("Testing at " + gData.cp + ", op = " + op);
         initPrototypeMethod(REGEXP_TAG, id, s, arity);
     }
 
+    @Override
     public Object execIdCall(IdFunctionObject f, Context cx, Scriptable scope,
                              Scriptable thisObj, Object[] args)
     {
@@ -2550,6 +2570,7 @@ System.out.println("Testing at " + gData.cp + ", op = " + op);
     }
 
 // #string_id_map#
+    @Override
     protected int findPrototypeId(String s)
     {
         int id;

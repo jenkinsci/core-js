@@ -1,18 +1,18 @@
-9
+10
 
 dir
-3197
-https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/trunk/core-js/rhino/src/org/mozilla/javascript/optimizer
+5285
+https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/tags/core-js-2.6/rhino/src/org/mozilla/javascript/optimizer
 https://htmlunit.svn.sourceforge.net/svnroot/htmlunit
 
 
 
-2008-04-08T07:55:39.341028Z
-2845
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 
 
-svn:special svn:externals svn:needs-lock
+
 
 
 
@@ -32,10 +32,10 @@ file
 
 
 
-2008-08-23T06:07:00.000000Z
-2e558e2cebd1a304a052e500bccb6899
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:26.000000Z
+32cae694dbcdb089a8b1e4acafd45cdc
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 has-props
 
@@ -58,7 +58,7 @@ has-props
 
 
 
-7519
+7868
 
 Optimizer.java
 file
@@ -66,10 +66,10 @@ file
 
 
 
-2008-08-23T06:07:00.000000Z
-dfce0433406c4eb160d4283ed1d3e4a7
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:26.000000Z
+8479f342588959681c4712585a7e4016
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 has-props
 
@@ -92,7 +92,7 @@ has-props
 
 
 
-21069
+21207
 
 Codegen.java
 file
@@ -100,10 +100,10 @@ file
 
 
 
-2008-08-23T06:07:00.000000Z
-ed119b8771706258c99fda5d21071516
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:26.000000Z
+70165957aea2303c20c88a98d43f6bc6
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 has-props
 
@@ -126,7 +126,7 @@ has-props
 
 
 
-191216
+193230
 
 OptTransformer.java
 file
@@ -134,10 +134,10 @@ file
 
 
 
-2008-08-23T06:07:00.000000Z
-b01d449b18742102ef7b9bcfed0804bd
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:26.000000Z
+782d5c0d4b80e14d58c4f8757452b131
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 has-props
 
@@ -160,7 +160,7 @@ has-props
 
 
 
-4947
+4981
 
 OptRuntime.java
 file
@@ -168,10 +168,10 @@ file
 
 
 
-2008-08-23T06:07:00.000000Z
-2f14af5460225db08bcd5270830285f8
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:26.000000Z
+d937cbff9b467bcac2f1287938e3bcc1
+2008-11-19T17:11:38.108303Z
+3785
 mguillem
 has-props
 
@@ -194,7 +194,7 @@ has-props
 
 
 
-11348
+11355
 
 Block.java
 file
@@ -202,10 +202,10 @@ file
 
 
 
-2008-08-23T06:07:00.000000Z
-4bf2990b9e4545af1494ac6096d479fb
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:26.000000Z
+978847b3793a5fc682d8f1ac4605a225
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 has-props
 
@@ -228,7 +228,7 @@ has-props
 
 
 
-22128
+22254
 
 CVS
 dir
@@ -239,7 +239,7 @@ file
 
 
 
-2008-08-23T06:07:00.000000Z
+2009-12-22T20:11:26.000000Z
 f18b2ac8ac0f3284efd10cba028b819f
 2008-04-08T07:55:39.341028Z
 2845
@@ -273,10 +273,10 @@ file
 
 
 
-2008-08-23T06:07:00.000000Z
-cf76cb28ef4ac5e4299badc056fa7022
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:26.000000Z
+f2694b0cd4221be0782628eb00734c30
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 has-props
 
@@ -299,5 +299,5 @@ has-props
 
 
 
-4411
+4497
 

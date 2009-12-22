@@ -25,6 +25,7 @@
  *   Patrick Beard
  *   Norris Boyd
  *   Igor Bukanov
+ *   Mike Harm
  *   Ethan Hugg
  *   Bob Jervis
  *   Roger Lawrence
@@ -54,6 +55,7 @@ import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import org.mozilla.javascript.ast.FunctionNode;
 import org.mozilla.javascript.xml.XMLObject;
 import org.mozilla.javascript.xml.XMLLib;
 
@@ -71,7 +73,7 @@ public class ScriptRuntime {
     protected ScriptRuntime() {
     }
 
-    private static class NoSuchMethodShim implements Callable {
+    static class NoSuchMethodShim implements Callable {
         String methodName;
         Callable noSuchMethodMethod;
 
@@ -150,7 +152,7 @@ public class ScriptRuntime {
         "getClass",      "org.mozilla.javascript.NativeJavaTopPackage",
         "JavaAdapter",   "org.mozilla.javascript.JavaAdapter",
         "JavaImporter",  "org.mozilla.javascript.ImporterTopLevel",
-        "Continuation",  "org.mozilla.javascript.continuations.Continuation",
+        "Continuation",  "org.mozilla.javascript.NativeContinuation",
         //	TODO	Grotesque hack using literal string (xml) just to minimize
 		//			changes for now
         "XML",           "(xml)",
@@ -159,7 +161,7 @@ public class ScriptRuntime {
         "QName",         "(xml)",
     };
 
-    private static final Object LIBRARY_SCOPE_KEY = new Object();
+    private static final Object LIBRARY_SCOPE_KEY = "LIBRARY_SCOPE";
 
     public static boolean isRhinoRuntimeType(Class<?> cl)
     {
@@ -230,7 +232,7 @@ public class ScriptRuntime {
 				className = cx.getE4xImplementationFactory().
                                getImplementationClassName();
 			}
-            new LazilyLoadedCtor(scope, topProperty, className, sealed);
+            new LazilyLoadedCtor(scope, topProperty, className, sealed, true);
         }
 
         return scope;
@@ -262,7 +264,7 @@ public class ScriptRuntime {
 
     public static Integer wrapInt(int i)
     {
-        return new Integer(i);
+        return Integer.valueOf(i);
     }
 
     public static Number wrapNumber(double x)
@@ -892,12 +894,29 @@ public class ScriptRuntime {
         return toObject(Context.getContext(), scope, val);
     }
 
+    /**
+     * Warning: this doesn't allow to resolve primitive prototype properly when many top scopes are involved
+     */
     public static Scriptable toObjectOrNull(Context cx, Object obj)
     {
         if (obj instanceof Scriptable) {
             return (Scriptable)obj;
         } else if (obj != null && obj != Undefined.instance) {
             return toObject(cx, getTopCallScope(cx), obj);
+        }
+        return null;
+    }
+
+    /**
+     * @param scope the scope that should be used to resolve primitive prototype
+     */
+    public static Scriptable toObjectOrNull(Context cx, Object obj,
+                                            final Scriptable scope)
+    {
+        if (obj instanceof Scriptable) {
+            return (Scriptable)obj;
+        } else if (obj != null && obj != Undefined.instance) {
+            return toObject(cx, scope, obj);
         }
         return null;
     }
@@ -1285,7 +1304,7 @@ public class ScriptRuntime {
     {
         long indexTest = indexFromString(s);
         if (indexTest >= 0) {
-            return new Integer((int)indexTest);
+            return Integer.valueOf((int)indexTest);
         }
         return s;
     }
@@ -1298,7 +1317,7 @@ public class ScriptRuntime {
     {
         int i = (int)d;
         if (i == d) {
-            return new Integer(i);
+            return Integer.valueOf(i);
         }
         return toString(d);
     }
@@ -1339,7 +1358,15 @@ public class ScriptRuntime {
      */
     public static Object getObjectElem(Object obj, Object elem, Context cx)
     {
-        Scriptable sobj = toObjectOrNull(cx, obj);
+    	return getObjectElem(obj, elem, cx, getTopCallScope(cx));
+    }
+
+    /**
+     * Call obj.[[Get]](id)
+     */
+    public static Object getObjectElem(Object obj, Object elem, Context cx, final Scriptable scope)
+    {
+        Scriptable sobj = toObjectOrNull(cx, obj, scope);
         if (sobj == null) {
             throw undefReadError(obj, elem);
         }
@@ -1384,6 +1411,19 @@ public class ScriptRuntime {
         return getObjectProp(sobj, property, cx);
     }
 
+    /**
+     * @param scope the scope that should be used to resolve primitive prototype
+     */
+    public static Object getObjectProp(Object obj, String property,
+                                       Context cx, final Scriptable scope)
+    {
+        Scriptable sobj = toObjectOrNull(cx, obj, scope);
+        if (sobj == null) {
+            throw undefReadError(obj, property);
+        }
+        return getObjectProp(sobj, property, cx);
+    }
+    
     public static Object getObjectProp(Scriptable obj, String property,
                                        Context cx)
     {
@@ -1451,7 +1491,7 @@ public class ScriptRuntime {
     {
         if (obj instanceof XMLObject) {
             XMLObject xmlObject = (XMLObject)obj;
-            return xmlObject.ecmaGet(cx, new Integer(index));
+            return xmlObject.ecmaGet(cx, Integer.valueOf(index));
         }
 
         Object result = ScriptableObject.getProperty(obj, index);
@@ -1546,7 +1586,7 @@ public class ScriptRuntime {
     {
         if (obj instanceof XMLObject) {
             XMLObject xmlObject = (XMLObject)obj;
-            xmlObject.ecmaPut(cx, new Integer(index), value);
+            xmlObject.ecmaPut(cx, Integer.valueOf(index), value);
         } else {
             ScriptableObject.putProperty(obj, index, value);
         }
@@ -1939,7 +1979,8 @@ public class ScriptRuntime {
             enumType != ENUMERATE_VALUES_NO_ITERATOR &&
             enumType != ENUMERATE_ARRAY_NO_ITERATOR)
         {
-            x.iterator = toIterator(cx, x.obj.getParentScope(), x.obj, true);
+            x.iterator = toIterator(cx, x.obj.getParentScope(), x.obj,
+                                    enumType == ScriptRuntime.ENUMERATE_KEYS);
         }
         if (x.iterator == null) {
             // enumInit should read all initial ids before returning
@@ -1962,7 +2003,7 @@ public class ScriptRuntime {
             if (!(v instanceof Callable))
                 return Boolean.FALSE;
             Callable f = (Callable) v;
-            Context cx = Context.enter();
+            Context cx = Context.getContext();
             try {
                 x.currentId = f.call(cx, x.iterator.getParentScope(), 
                                      x.iterator, emptyArgs);
@@ -1972,8 +2013,6 @@ public class ScriptRuntime {
                   return Boolean.FALSE;
                 }
                 throw e;
-            } finally {
-                Context.exit();
             }
         }
         for (;;) {
@@ -1998,7 +2037,7 @@ public class ScriptRuntime {
                 int intId = ((Number)id).intValue();
                 if (!x.obj.has(intId, x.obj))
                     continue;   // must have been deleted
-                x.currentId = x.enumNumbers ? (Object) (new Integer(intId))
+                x.currentId = x.enumNumbers ? (Object) (Integer.valueOf(intId))
                                             : String.valueOf(intId);
             }
             return Boolean.TRUE;
@@ -2021,7 +2060,7 @@ public class ScriptRuntime {
           case ENUMERATE_ARRAY:
           case ENUMERATE_ARRAY_NO_ITERATOR:
             Object[] elements = { x.currentId, enumValue(enumObj, cx) };
-            return cx.newArray(x.obj.getParentScope(), elements);
+            return cx.newArray(ScriptableObject.getTopLevelScope(x.obj), elements);
           default:
             throw Kit.codeBug();
         }
@@ -2122,7 +2161,7 @@ public class ScriptRuntime {
 
         Object value;
         for (;;) {
-            // Ignore XML lookup as requred by ECMA 357, 11.2.2.1
+            // Ignore XML lookup as required by ECMA 357, 11.2.2.1
             value = ScriptableObject.getProperty(thisObj, index);
             if (value != Scriptable.NOT_FOUND) {
                 break;
@@ -2151,12 +2190,35 @@ public class ScriptRuntime {
      * as ScriptRuntime.lastStoredScriptable() for consumption as thisObj.
      * The caller must call ScriptRuntime.lastStoredScriptable() immediately
      * after calling this method.
+     * Warning: this doesn't allow to resolve primitive prototype properly when
+     * many top scopes are involved.
      */
     public static Callable getPropFunctionAndThis(Object obj,
                                                   String property,
                                                   Context cx)
     {
         Scriptable thisObj = toObjectOrNull(cx, obj);
+        return getPropFunctionAndThisHelper(obj, property, cx, thisObj);
+    }
+
+    /**
+     * Prepare for calling obj.property(...): return function corresponding to
+     * obj.property and make obj properly converted to Scriptable available
+     * as ScriptRuntime.lastStoredScriptable() for consumption as thisObj.
+     * The caller must call ScriptRuntime.lastStoredScriptable() immediately
+     * after calling this method.
+     */
+    public static Callable getPropFunctionAndThis(Object obj,
+                                                  String property,
+                                                  Context cx, final Scriptable scope)
+    {
+        Scriptable thisObj = toObjectOrNull(cx, obj, scope);
+        return getPropFunctionAndThisHelper(obj, property, cx, thisObj);
+    }
+    
+    private static Callable getPropFunctionAndThisHelper(Object obj,
+          String property, Context cx, Scriptable thisObj)
+    {
         if (thisObj == null) {
             throw undefCallError(obj, property);
         }
@@ -2435,17 +2497,10 @@ public class ScriptRuntime {
             return "object";
         if (value == Undefined.instance)
             return "undefined";
+        if (value instanceof ScriptableObject)
+        	return ((ScriptableObject) value).getTypeOf();
         if (value instanceof Scriptable)
-        {
-            if (value instanceof ScriptableObject &&
-                ((ScriptableObject)value).avoidObjectDetection())
-            {
-                return "undefined";
-            }
-            if (value instanceof XMLObject)
-                return "xml";
             return (value instanceof Callable) ? "function" : "object";
-        }
         if (value instanceof String)
             return "string";
         if (value instanceof Number)
@@ -2868,8 +2923,6 @@ public class ScriptRuntime {
         }
 
         // for primitive values on LHS, return false
-        // XXX we may want to change this so that
-        // 5 instanceof Number == true
         if (! (a instanceof Scriptable))
             return false;
 
@@ -2993,7 +3046,8 @@ public class ScriptRuntime {
                                    Context cx, Scriptable scope,
                                    Scriptable thisObj, Object[] args)
     {
-        if (scope == null) throw new IllegalArgumentException();
+        if (scope == null)
+            throw new IllegalArgumentException();
         if (cx.topCallScope != null) throw new IllegalStateException();
 
         Object result;
@@ -3195,7 +3249,7 @@ public class ScriptRuntime {
             int line = re.lineNumber();
             Object args[];
             if (line > 0) {
-                args = new Object[] { errorMsg, sourceUri, new Integer(line) };
+                args = new Object[] { errorMsg, sourceUri, Integer.valueOf(line) };
             } else {
                 args = new Object[] { errorMsg, sourceUri };
             }
@@ -3203,18 +3257,19 @@ public class ScriptRuntime {
             Scriptable errorObject = cx.newObject(scope, errorName, args);
             ScriptableObject.putProperty(errorObject, "name", errorName);
 
-            if (javaException != null) {
+            if (javaException != null && isVisible(cx, javaException)) {
                 Object wrap = cx.getWrapFactory().wrap(cx, scope, javaException,
                                                        null);
                 ScriptableObject.defineProperty(
                     errorObject, "javaException", wrap,
                     ScriptableObject.PERMANENT | ScriptableObject.READONLY);
             }
-            Object wrap = cx.getWrapFactory().wrap(cx, scope, re, null);
-            ScriptableObject.defineProperty(
-                errorObject, "rhinoException", wrap,
-                ScriptableObject.PERMANENT | ScriptableObject.READONLY);
-
+            if (isVisible(cx, re)) {
+                Object wrap = cx.getWrapFactory().wrap(cx, scope, re, null);
+                ScriptableObject.defineProperty(
+                        errorObject, "rhinoException", wrap,
+                        ScriptableObject.PERMANENT | ScriptableObject.READONLY);                
+            }
             obj = errorObject;
         }
 
@@ -3222,18 +3277,26 @@ public class ScriptRuntime {
         // See ECMA 12.4
         catchScopeObject.defineProperty(
             exceptionName, obj, ScriptableObject.PERMANENT);
-
-        // Add special Rhino object __exception__ defined in the catch
-        // scope that can be used to retrieve the Java exception associated
-        // with the JavaScript exception (to get stack trace info, etc.)
-        catchScopeObject.defineProperty(
-            "__exception__", Context.javaToJS(t, scope),
-            ScriptableObject.PERMANENT|ScriptableObject.DONTENUM);
+        
+        if (isVisible(cx, t)) {
+            // Add special Rhino object __exception__ defined in the catch
+            // scope that can be used to retrieve the Java exception associated
+            // with the JavaScript exception (to get stack trace info, etc.)
+            catchScopeObject.defineProperty(
+                "__exception__", Context.javaToJS(t, scope),
+                ScriptableObject.PERMANENT|ScriptableObject.DONTENUM);
+        }
 
         if (cacheObj) {
             catchScopeObject.associateValue(t, obj);
         }
         return catchScopeObject;
+    }
+    
+    private static boolean isVisible(Context cx, Object obj) {
+        ClassShutter shutter = cx.getClassShutter();
+        return shutter == null ||
+            shutter.visibleToScripts(obj.getClass().getName());
     }
 
     public static Scriptable enterWith(Object obj, Context cx,
@@ -3402,9 +3465,13 @@ public class ScriptRuntime {
             int getterSetter = getterSetters[i];
             Object value = propertyValues[i];
             if (id instanceof String) {
-                if (getterSetter == 0)
-                    ScriptableObject.putProperty(object, (String)id, value);
-                else {
+                if (getterSetter == 0) {
+                    if (isSpecialProperty((String)id)) {
+                        specialRef(object, (String)id, cx).set(cx, value);
+                    } else {
+                        ScriptableObject.putProperty(object, (String)id, value);
+                    }
+                } else {
                     Callable fun;
                     String definer;
                     if (getterSetter < 0)   // < 0 means get foo() ...
@@ -3496,37 +3563,63 @@ public class ScriptRuntime {
         Object[] arguments = {arg1, arg2, arg3, arg4};
         return getMessage(messageId, arguments);
     }
+    
+    /**
+     * This is an interface defining a message provider. Create your
+     * own implementation to override the default error message provider.
+     * 
+     * @author Mike Harm
+     */
+    public interface MessageProvider {
+     
+        /**
+         * Returns a textual message identified by the given messageId,
+         * parameterized by the given arguments.
+         *
+         * @param messageId the identifier of the message
+         * @param arguments the arguments to fill into the message
+         */
+        String getMessage(String messageId, Object[] arguments);
+    }
+
+    public static MessageProvider messageProvider = new DefaultMessageProvider();
+
+    public static String getMessage(String messageId, Object[] arguments)
+    {
+        return messageProvider.getMessage(messageId, arguments);
+    }
 
     /* OPT there's a noticable delay for the first error!  Maybe it'd
      * make sense to use a ListResourceBundle instead of a properties
      * file to avoid (synchronized) text parsing.
      */
-    public static String getMessage(String messageId, Object[] arguments)
-    {
-        final String defaultResource
-            = "org.mozilla.javascript.resources.Messages";
+    private static class DefaultMessageProvider implements MessageProvider {
+        public String getMessage(String messageId, Object[] arguments) {
+            final String defaultResource
+                = "org.mozilla.javascript.resources.Messages";
 
-        Context cx = Context.getCurrentContext();
-        Locale locale = cx != null ? cx.getLocale() : Locale.getDefault();
+            Context cx = Context.getCurrentContext();
+            Locale locale = cx != null ? cx.getLocale() : Locale.getDefault();
 
-        // ResourceBundle does cacheing.
-        ResourceBundle rb = ResourceBundle.getBundle(defaultResource, locale);
+            // ResourceBundle does caching.
+            ResourceBundle rb = ResourceBundle.getBundle(defaultResource, locale);
 
-        String formatString;
-        try {
-            formatString = rb.getString(messageId);
-        } catch (java.util.MissingResourceException mre) {
-            throw new RuntimeException
-                ("no message resource found for message property "+ messageId);
+            String formatString;
+            try {
+                formatString = rb.getString(messageId);
+            } catch (java.util.MissingResourceException mre) {
+                throw new RuntimeException
+                    ("no message resource found for message property "+ messageId);
+            }
+
+            /*
+             * It's OK to format the string, even if 'arguments' is null;
+             * we need to format it anyway, to make double ''s collapse to
+             * single 's.
+             */
+            MessageFormat formatter = new MessageFormat(formatString);
+            return formatter.format(arguments);
         }
-
-        /*
-         * It's OK to format the string, even if 'arguments' is null;
-         * we need to format it anyway, to make double ''s collapse to
-         * single 's.
-         */
-        MessageFormat formatter = new MessageFormat(formatString);
-        return formatter.format(arguments);
     }
 
     public static EcmaError constructError(String error, String message)
@@ -3788,7 +3881,7 @@ public class ScriptRuntime {
 
     private static void storeScriptable(Context cx, Scriptable value)
     {
-        // The previosly stored scratchScriptable should be consumed
+        // The previously stored scratchScriptable should be consumed
         if (cx.scratchScriptable != null)
             throw new IllegalStateException();
         cx.scratchScriptable = value;
@@ -3825,5 +3918,5 @@ public class ScriptRuntime {
 
     public static final Object[] emptyArgs = new Object[0];
     public static final String[] emptyStrings = new String[0];
-
+    
 }

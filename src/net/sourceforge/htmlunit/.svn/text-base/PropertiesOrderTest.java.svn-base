@@ -1,13 +1,12 @@
 package net.sourceforge.htmlunit;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 /**
  * Test that Object properties are returned in the creation order.
+ * (now fixed in Rhino itself)
  * @author Marc Guillemot
  */
-@RunWith(RhinoPatchedRunner.class)
 public class PropertiesOrderTest {
 
 	/**

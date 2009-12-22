@@ -1,53 +1,53 @@
 K 25
 svn:wc:ra_dav:version-url
-V 97
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger
+V 100
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger
 END
 GuiCallback.java
 K 25
 svn:wc:ra_dav:version-url
-V 114
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/GuiCallback.java
+V 117
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/GuiCallback.java
 END
 Main.java
 K 25
 svn:wc:ra_dav:version-url
-V 107
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/Main.java
+V 110
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/Main.java
 END
 ScopeProvider.java
 K 25
 svn:wc:ra_dav:version-url
-V 116
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/ScopeProvider.java
+V 119
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/ScopeProvider.java
 END
 Dim.java
 K 25
 svn:wc:ra_dav:version-url
-V 106
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/Dim.java
+V 109
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/Dim.java
 END
 test.js
 K 25
 svn:wc:ra_dav:version-url
-V 105
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/test.js
+V 108
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/test.js
 END
 SwingGui.java
 K 25
 svn:wc:ra_dav:version-url
-V 111
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/SwingGui.java
+V 114
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/SwingGui.java
 END
 .cvsignore
 K 25
 svn:wc:ra_dav:version-url
-V 108
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/.cvsignore
+V 111
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/.cvsignore
 END
 build.xml
 K 25
 svn:wc:ra_dav:version-url
-V 107
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/build.xml
+V 110
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/debugger/build.xml
 END

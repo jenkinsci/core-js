@@ -1,18 +1,18 @@
-9
+10
 
 dir
-3197
-https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/trunk/core-js
+5285
+https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/tags/core-js-2.6
 https://htmlunit.svn.sourceforge.net/svnroot/htmlunit
 
 
 
-2008-07-24T14:22:27.733621Z
-3197
-mguillem
+2009-09-02T09:51:42.812370Z
+4898
+asashour
 has-props
 
-svn:special svn:externals svn:needs-lock
+
 
 
 
@@ -35,7 +35,7 @@ file
 
 
 
-2008-08-23T06:14:34.000000Z
+2009-12-22T20:11:55.000000Z
 455763f5c7632c49590f4afd94364a5b
 2008-04-08T11:30:16.595871Z
 2858
@@ -72,10 +72,10 @@ file
 
 
 
-2008-08-23T06:23:38.000000Z
-c102ae46a4516506afefad0a382a6fb8
-2008-07-24T12:21:31.828407Z
-3196
+2009-12-22T20:11:55.000000Z
+1946fe837dc22bae5fd6206d703a30b5
+2009-07-06T08:45:44.978651Z
+4683
 mguillem
 has-props
 
@@ -98,7 +98,7 @@ has-props
 
 
 
-7679
+3521
 
 src
 dir
@@ -109,7 +109,7 @@ file
 
 
 
-2008-08-23T06:23:38.000000Z
+2009-12-22T20:11:55.000000Z
 181c03e2328db753c05eed2d5663f4d3
 2008-04-08T08:13:14.330879Z
 2852
@@ -143,11 +143,11 @@ file
 
 
 
-2008-08-23T06:23:38.000000Z
-be338be60d0060774c26a5ce03723a99
-2008-07-24T14:22:27.733621Z
-3197
-mguillem
+2009-12-22T20:11:55.000000Z
+5869667cb33e08e1aac2f4cf9af3e51b
+2009-09-02T08:54:25.068727Z
+4896
+asashour
 has-props
 
 
@@ -169,7 +169,7 @@ has-props
 
 
 
-1758
+1796
 
 build.xml
 file
@@ -177,11 +177,11 @@ file
 
 
 
-2008-08-23T06:23:38.000000Z
-e280173d727d86c3934923c12268e94b
-2008-07-24T12:21:31.828407Z
-3196
-mguillem
+2009-12-22T20:11:55.000000Z
+bb27c401c3e6467ac2ac6d71a7c68a42
+2009-09-02T08:57:12.342574Z
+4897
+asashour
 has-props
 
 
@@ -203,5 +203,5 @@ has-props
 
 
 
-5810
+7000
 

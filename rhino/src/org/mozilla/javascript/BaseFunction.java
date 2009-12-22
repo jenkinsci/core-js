@@ -51,7 +51,7 @@ public class BaseFunction extends IdScriptableObject implements Function
 
     static final long serialVersionUID = 5311394446546053859L;
 
-    private static final Object FUNCTION_TAG = new Object();
+    private static final Object FUNCTION_TAG = "Function";
 
     static void init(Scriptable scope, boolean sealed)
     {
@@ -73,6 +73,17 @@ public class BaseFunction extends IdScriptableObject implements Function
     @Override
     public String getClassName() {
         return "Function";
+    }
+    
+    /**
+     * Gets the value returned by calling the typeof operator on this object. 
+     * @see org.mozilla.javascript.ScriptableObject#getTypeOf()
+     * @return "function" or "undefined" if {@link #avoidObjectDetection()} returns <code>true</code>
+     */
+    @Override
+    public String getTypeOf()
+    {
+    	return avoidObjectDetection() ? "undefined" : "function";
     }
 
     /**

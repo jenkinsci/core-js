@@ -1,18 +1,18 @@
-9
+10
 
 dir
-3197
-https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/trunk/core-js/rhino/testsrc
+5285
+https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/tags/core-js-2.6/rhino/testsrc
 https://htmlunit.svn.sourceforge.net/svnroot/htmlunit
 
 
 
-2008-04-08T08:05:56.387577Z
-2849
+2009-07-06T08:45:44.978651Z
+4683
 mguillem
 
 
-svn:special svn:externals svn:needs-lock
+
 
 
 
@@ -35,10 +35,10 @@ file
 
 
 
-2008-08-23T06:11:45.000000Z
-b6ac579f30a45c8f63cb9f19ed974eff
-2008-04-08T08:05:56.387577Z
-2849
+2009-12-22T20:11:47.000000Z
+9988d2d0f6cfb7ab6ae1e8728d0d74c0
+2009-06-30T19:01:03.944705Z
+4668
 mguillem
 
 
@@ -61,7 +61,75 @@ mguillem
 
 
 
-21148
+23438
+
+opt-1.tests
+file
+
+
+
+
+2009-12-22T20:11:47.000000Z
+b553ca682f0cac473b26d572f3779e5b
+2009-06-30T19:01:03.944705Z
+4668
+mguillem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+54228
+
+opt0.tests
+file
+
+
+
+
+2009-12-22T20:11:47.000000Z
+8e8bf2bf73653aaba7bc31e784e367cf
+2009-06-30T19:01:03.944705Z
+4668
+mguillem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+53968
 
 org
 dir
@@ -75,7 +143,7 @@ file
 
 
 
-2008-08-23T06:11:45.000000Z
+2009-12-22T20:11:47.000000Z
 438e75e01c5a6a5a3401e1f79d9bad9b
 2008-04-08T08:05:56.387577Z
 2849
@@ -106,16 +174,53 @@ mguillem
 CVS
 dir
 
+opt9.tests
+file
+
+
+
+
+2009-12-22T20:11:47.000000Z
+8e8bf2bf73653aaba7bc31e784e367cf
+2009-06-30T19:01:03.944705Z
+4668
+mguillem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+53968
+
+benchmarks
+dir
+
 build.xml
 file
 
 
 
 
-2008-08-23T06:11:45.000000Z
-5cd558439f8cf4803e658831a3d82f68
-2008-04-08T08:05:56.387577Z
-2849
+2009-12-22T20:11:47.000000Z
+52eebc3dd2a37460cca28d7be83255bf
+2009-06-30T19:01:03.944705Z
+4668
 mguillem
 has-props
 
@@ -138,5 +243,5 @@ has-props
 
 
 
-6339
+6618
 

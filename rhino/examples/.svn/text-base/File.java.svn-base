@@ -38,7 +38,8 @@
 
 import org.mozilla.javascript.*;
 import java.io.*;
-import java.util.Vector;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Define a simple JavaScript File object.
@@ -71,6 +72,10 @@ import java.util.Vector;
  */
 public class File extends ScriptableObject {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 2549960399774237828L;
     /**
      * The zero-parameter constructor.
      *
@@ -108,6 +113,7 @@ public class File extends ScriptableObject {
     /**
      * Returns the name of this JavaScript class, "File".
      */
+    @Override
     public String getClassName() {
         return "File";
     }
@@ -135,14 +141,12 @@ public class File extends ScriptableObject {
     public Object jsFunction_readLines()
         throws IOException
     {
-        Vector v = new Vector();
+        List<String> list = new ArrayList<String>();
         String s;
         while ((s = jsFunction_readLine()) != null) {
-            v.addElement(s);
+            list.add(s);
         }
-        Object[] lines = new Object[v.size()];
-        v.copyInto(lines);
-
+        String[] lines = list.toArray(new String[list.size()]);
         Scriptable scope = ScriptableObject.getTopLevelScope(this);
         Context cx = Context.getCurrentContext();
         return cx.newObject(scope, "Array", lines);
@@ -235,6 +239,7 @@ public class File extends ScriptableObject {
      *
      * Close the file when this object is collected.
      */
+    @Override
     protected void finalize() {
         try {
             jsFunction_close();

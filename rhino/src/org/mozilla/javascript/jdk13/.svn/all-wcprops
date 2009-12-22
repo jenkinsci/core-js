@@ -1,11 +1,11 @@
 K 25
 svn:wc:ra_dav:version-url
-V 84
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/jdk13
+V 87
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/jdk13
 END
 VMBridge_jdk13.java
 K 25
 svn:wc:ra_dav:version-url
-V 104
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/jdk13/VMBridge_jdk13.java
+V 107
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/jdk13/VMBridge_jdk13.java
 END

@@ -1,18 +1,18 @@
-9
+10
 
 dir
-3197
-https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/trunk/core-js/rhino/src/org/mozilla/javascript/regexp
+5285
+https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/tags/core-js-2.6/rhino/src/org/mozilla/javascript/regexp
 https://htmlunit.svn.sourceforge.net/svnroot/htmlunit
 
 
 
-2008-04-08T07:55:39.341028Z
-2845
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 
 
-svn:special svn:externals svn:needs-lock
+
 
 
 
@@ -32,10 +32,10 @@ file
 
 
 
-2008-08-23T06:08:45.000000Z
-671f59a85d450c960d8502e834a3a89a
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:33.000000Z
+463f9a8b0367f3d2191905eff8348f60
+2008-11-19T17:11:38.108303Z
+3785
 mguillem
 has-props
 
@@ -58,7 +58,7 @@ has-props
 
 
 
-2404
+2418
 
 NativeRegExp.java
 file
@@ -66,10 +66,10 @@ file
 
 
 
-2008-08-23T06:08:45.000000Z
-4d8062603bbebe113314752b29f6f659
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:33.000000Z
+3384041f7148a900351d4c70929b3e74
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 has-props
 
@@ -92,7 +92,7 @@ has-props
 
 
 
-101966
+102376
 
 NativeRegExpCtor.java
 file
@@ -100,10 +100,10 @@ file
 
 
 
-2008-08-23T06:08:45.000000Z
-cd70070c61d644f8b238252c03bb6838
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:33.000000Z
+bc94affa6a370d0cd8948f26e10a5093
+2008-11-19T17:11:38.108303Z
+3785
 mguillem
 has-props
 
@@ -126,7 +126,7 @@ has-props
 
 
 
-10092
+10204
 
 CVS
 dir
@@ -137,10 +137,10 @@ file
 
 
 
-2008-08-23T06:08:45.000000Z
-ecc2b4d7129578d0f7493d952f2980fa
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:33.000000Z
+0939666baf47152d6c3b891de95b30dc
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 has-props
 
@@ -163,5 +163,5 @@ has-props
 
 
 
-20318
+28380
 

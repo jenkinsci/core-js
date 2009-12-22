@@ -60,19 +60,16 @@ public class NativeJavaTopPackage
 
     // we know these are packages so we can skip the class check
     // note that this is ok even if the package isn't present.
-    private static final String commonPackages = ""
-                                                 +"java.lang;"
-                                                 +"java.lang.reflect;"
-                                                 +"java.io;"
-                                                 +"java.math;"
-                                                 +"java.net;"
-                                                 +"java.util;"
-                                                 +"java.util.zip;"
-                                                 +"java.text;"
-                                                 +"java.text.resources;"
-                                                 +"java.applet;"
-                                                 +"javax.swing;"
-                                                 ;
+    private static final String[][] commonPackages = {
+            {"java", "lang", "reflect"},
+            {"java", "io"},
+            {"java", "math"},
+            {"java", "net"},
+            {"java", "util", "zip"},
+            {"java", "text", "resources"},
+            {"java", "applet"},
+            {"javax", "swing"}
+    };
 
     NativeJavaTopPackage(ClassLoader loader)
     {
@@ -101,7 +98,9 @@ public class NativeJavaTopPackage
             Context.reportRuntimeError0("msg.not.classloader");
             return null;
         }
-        return new NativeJavaPackage(true, "", loader);
+        NativeJavaPackage pkg = new NativeJavaPackage(true, "", loader);
+        ScriptRuntime.setObjectProtoAndParent(pkg, scope);
+        return pkg;
     }
 
     public static void init(Context cx, Scriptable scope, boolean sealed)
@@ -111,9 +110,11 @@ public class NativeJavaTopPackage
         top.setPrototype(getObjectPrototype(scope));
         top.setParentScope(scope);
 
-        String[] names = Kit.semicolonSplit(commonPackages);
-        for (int i = 0; i != names.length; ++i) {
-            top.forcePackage(names[i], scope);
+        for (int i = 0; i != commonPackages.length; i++) {
+            NativeJavaPackage parent = top;
+            for (int j = 0; j != commonPackages[i].length; j++) {
+                parent = parent.forcePackage(commonPackages[i][j], scope);
+            }
         }
 
         // getClass implementation
@@ -181,7 +182,7 @@ public class NativeJavaTopPackage
         throw Context.reportRuntimeError0("msg.not.java.obj");
     }
 
-    private static final Object FTAG = new Object();
+    private static final Object FTAG = "JavaTopPackage";
     private static final int Id_getClass = 1;
 }
 

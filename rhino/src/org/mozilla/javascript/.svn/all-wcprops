@@ -1,545 +1,557 @@
 K 25
 svn:wc:ra_dav:version-url
-V 78
-/svnroot/htmlunit/!svn/ver/3148/trunk/core-js/rhino/src/org/mozilla/javascript
+V 81
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript
 END
 VMBridge.java
 K 25
 svn:wc:ra_dav:version-url
-V 92
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/VMBridge.java
+V 95
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/VMBridge.java
 END
 NativeMath.java
 K 25
 svn:wc:ra_dav:version-url
-V 94
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeMath.java
+V 97
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeMath.java
 END
 DefiningClassLoader.java
 K 25
 svn:wc:ra_dav:version-url
-V 103
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/DefiningClassLoader.java
+V 106
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/DefiningClassLoader.java
 END
 Interpreter.java
 K 25
 svn:wc:ra_dav:version-url
-V 95
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Interpreter.java
+V 98
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Interpreter.java
 END
 SecurityUtilities.java
 K 25
 svn:wc:ra_dav:version-url
-V 101
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/SecurityUtilities.java
+V 104
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/SecurityUtilities.java
 END
 NativeJavaPackage.java
 K 25
 svn:wc:ra_dav:version-url
-V 101
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeJavaPackage.java
+V 104
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeJavaPackage.java
 END
 Script.java
 K 25
 svn:wc:ra_dav:version-url
-V 90
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Script.java
+V 93
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Script.java
 END
 Arguments.java
 K 25
 svn:wc:ra_dav:version-url
-V 93
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Arguments.java
+V 96
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Arguments.java
 END
 ErrorReporter.java
 K 25
 svn:wc:ra_dav:version-url
-V 97
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/ErrorReporter.java
+V 100
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ErrorReporter.java
 END
 NativeJavaClass.java
 K 25
 svn:wc:ra_dav:version-url
-V 99
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeJavaClass.java
-END
-NativeWith.java
-K 25
-svn:wc:ra_dav:version-url
-V 94
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeWith.java
+V 102
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeJavaClass.java
 END
 JavaAdapter.java
 K 25
 svn:wc:ra_dav:version-url
-V 95
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/JavaAdapter.java
+V 98
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/JavaAdapter.java
 END
 ContextAction.java
 K 25
 svn:wc:ra_dav:version-url
+V 100
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ContextAction.java
+END
+NativeWith.java
+K 25
+svn:wc:ra_dav:version-url
 V 97
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/ContextAction.java
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeWith.java
 END
 Decompiler.java
 K 25
 svn:wc:ra_dav:version-url
-V 94
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Decompiler.java
+V 97
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Decompiler.java
 END
 NativeDate.java
 K 25
 svn:wc:ra_dav:version-url
-V 94
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeDate.java
+V 97
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeDate.java
 END
 Kit.java
 K 25
 svn:wc:ra_dav:version-url
-V 87
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Kit.java
+V 90
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Kit.java
 END
 ClassCache.java
 K 25
 svn:wc:ra_dav:version-url
-V 94
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/ClassCache.java
+V 97
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ClassCache.java
 END
 IdFunctionObject.java
 K 25
 svn:wc:ra_dav:version-url
-V 100
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/IdFunctionObject.java
+V 103
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/IdFunctionObject.java
 END
 ContextListener.java
 K 25
 svn:wc:ra_dav:version-url
-V 99
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/ContextListener.java
+V 102
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ContextListener.java
 END
 InterpretedFunction.java
 K 25
 svn:wc:ra_dav:version-url
-V 103
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/InterpretedFunction.java
+V 106
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/InterpretedFunction.java
 END
 JavaMembers.java
 K 25
 svn:wc:ra_dav:version-url
-V 95
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/JavaMembers.java
+V 98
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/JavaMembers.java
 END
 IdScriptableObject.java
 K 25
 svn:wc:ra_dav:version-url
-V 102
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/IdScriptableObject.java
+V 105
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/IdScriptableObject.java
 END
 RegExpProxy.java
 K 25
 svn:wc:ra_dav:version-url
-V 95
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/RegExpProxy.java
+V 98
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/RegExpProxy.java
 END
 RhinoException.java
 K 25
 svn:wc:ra_dav:version-url
-V 98
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/RhinoException.java
+V 101
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/RhinoException.java
 END
 NativeNumber.java
 K 25
 svn:wc:ra_dav:version-url
-V 96
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeNumber.java
+V 99
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeNumber.java
 END
 InterfaceAdapter.java
 K 25
 svn:wc:ra_dav:version-url
-V 100
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/InterfaceAdapter.java
+V 103
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/InterfaceAdapter.java
 END
 UniqueTag.java
 K 25
 svn:wc:ra_dav:version-url
-V 93
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/UniqueTag.java
+V 96
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/UniqueTag.java
 END
 ConstProperties.java
 K 25
 svn:wc:ra_dav:version-url
-V 99
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/ConstProperties.java
+V 102
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ConstProperties.java
 END
 NodeTransformer.java
 K 25
 svn:wc:ra_dav:version-url
-V 99
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NodeTransformer.java
+V 102
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NodeTransformer.java
 END
 ObjArray.java
 K 25
 svn:wc:ra_dav:version-url
-V 92
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/ObjArray.java
+V 95
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ObjArray.java
 END
 GeneratedClassLoader.java
 K 25
 svn:wc:ra_dav:version-url
-V 104
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/GeneratedClassLoader.java
+V 107
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/GeneratedClassLoader.java
 END
 EcmaError.java
 K 25
 svn:wc:ra_dav:version-url
-V 93
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/EcmaError.java
+V 96
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/EcmaError.java
 END
 ScriptableObject.java
 K 25
 svn:wc:ra_dav:version-url
-V 100
-/svnroot/htmlunit/!svn/ver/3145/trunk/core-js/rhino/src/org/mozilla/javascript/ScriptableObject.java
+V 103
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ScriptableObject.java
 END
 MemberBox.java
 K 25
 svn:wc:ra_dav:version-url
-V 93
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/MemberBox.java
+V 96
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/MemberBox.java
 END
 BaseFunction.java
 K 25
 svn:wc:ra_dav:version-url
-V 96
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/BaseFunction.java
+V 99
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/BaseFunction.java
 END
 Token.java
 K 25
 svn:wc:ra_dav:version-url
-V 89
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Token.java
+V 92
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Token.java
 END
 Wrapper.java
 K 25
 svn:wc:ra_dav:version-url
-V 91
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Wrapper.java
+V 94
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Wrapper.java
+END
+NativeContinuation.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeContinuation.java
 END
 NativeArray.java
 K 25
 svn:wc:ra_dav:version-url
-V 95
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeArray.java
+V 98
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeArray.java
 END
 NativeBoolean.java
 K 25
 svn:wc:ra_dav:version-url
-V 97
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeBoolean.java
+V 100
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeBoolean.java
 END
 DToA.java
 K 25
 svn:wc:ra_dav:version-url
-V 88
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/DToA.java
-END
-FunctionNode.java
-K 25
-svn:wc:ra_dav:version-url
-V 96
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/FunctionNode.java
+V 91
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/DToA.java
 END
 Parser.java
 K 25
 svn:wc:ra_dav:version-url
-V 90
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Parser.java
+V 93
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Parser.java
 END
 RefCallable.java
 K 25
 svn:wc:ra_dav:version-url
-V 95
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/RefCallable.java
+V 98
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/RefCallable.java
 END
 NativeGenerator.java
 K 25
 svn:wc:ra_dav:version-url
-V 99
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeGenerator.java
+V 102
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeGenerator.java
 END
 IdFunctionCall.java
 K 25
 svn:wc:ra_dav:version-url
-V 98
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/IdFunctionCall.java
-END
-ScriptOrFnNode.java
-K 25
-svn:wc:ra_dav:version-url
-V 98
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/ScriptOrFnNode.java
+V 101
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/IdFunctionCall.java
 END
 Undefined.java
 K 25
 svn:wc:ra_dav:version-url
-V 93
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Undefined.java
+V 96
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Undefined.java
 END
 IRFactory.java
 K 25
 svn:wc:ra_dav:version-url
-V 93
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/IRFactory.java
+V 96
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/IRFactory.java
 END
 Delegator.java
 K 25
 svn:wc:ra_dav:version-url
-V 93
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Delegator.java
+V 96
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Delegator.java
 END
 ScriptRuntime.java
 K 25
 svn:wc:ra_dav:version-url
-V 97
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/ScriptRuntime.java
+V 100
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ScriptRuntime.java
 END
 SecureCaller.java
 K 25
 svn:wc:ra_dav:version-url
-V 96
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/SecureCaller.java
+V 99
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/SecureCaller.java
 END
 NativeScript.java
 K 25
 svn:wc:ra_dav:version-url
-V 96
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeScript.java
+V 99
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeScript.java
 END
 SecurityController.java
 K 25
 svn:wc:ra_dav:version-url
-V 102
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/SecurityController.java
+V 105
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/SecurityController.java
 END
 ContextFactory.java
 K 25
 svn:wc:ra_dav:version-url
-V 98
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/ContextFactory.java
+V 101
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ContextFactory.java
 END
 NativeString.java
 K 25
 svn:wc:ra_dav:version-url
-V 96
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeString.java
+V 99
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeString.java
 END
 NativeObject.java
 K 25
 svn:wc:ra_dav:version-url
-V 96
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeObject.java
+V 99
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeObject.java
 END
 UintMap.java
 K 25
 svn:wc:ra_dav:version-url
-V 91
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/UintMap.java
+V 94
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/UintMap.java
 END
 NativeJavaObject.java
 K 25
 svn:wc:ra_dav:version-url
-V 100
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeJavaObject.java
+V 103
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeJavaObject.java
+END
+ContinuationPending.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ContinuationPending.java
 END
 WrappedException.java
 K 25
 svn:wc:ra_dav:version-url
-V 100
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/WrappedException.java
-END
-EvaluatorException.java
-K 25
-svn:wc:ra_dav:version-url
-V 102
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/EvaluatorException.java
+V 103
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/WrappedException.java
 END
 DefaultErrorReporter.java
 K 25
 svn:wc:ra_dav:version-url
-V 104
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/DefaultErrorReporter.java
+V 107
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/DefaultErrorReporter.java
+END
+EvaluatorException.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/EvaluatorException.java
+END
+Icode.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Icode.java
 END
 ClassShutter.java
 K 25
 svn:wc:ra_dav:version-url
-V 96
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/ClassShutter.java
+V 99
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ClassShutter.java
 END
 Node.java
 K 25
 svn:wc:ra_dav:version-url
-V 88
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Node.java
+V 91
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Node.java
 END
 ObjToIntMap.java
 K 25
 svn:wc:ra_dav:version-url
-V 95
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/ObjToIntMap.java
+V 98
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ObjToIntMap.java
 END
 NativeJavaMethod.java
 K 25
 svn:wc:ra_dav:version-url
-V 100
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeJavaMethod.java
+V 103
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeJavaMethod.java
 END
 PolicySecurityController.java
 K 25
 svn:wc:ra_dav:version-url
-V 108
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/PolicySecurityController.java
+V 111
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/PolicySecurityController.java
 END
 TokenStream.java
 K 25
 svn:wc:ra_dav:version-url
-V 95
-/svnroot/htmlunit/!svn/ver/2861/trunk/core-js/rhino/src/org/mozilla/javascript/TokenStream.java
+V 98
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/TokenStream.java
 END
 Synchronizer.java
 K 25
 svn:wc:ra_dav:version-url
-V 96
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Synchronizer.java
+V 99
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Synchronizer.java
 END
 NativeJavaConstructor.java
 K 25
 svn:wc:ra_dav:version-url
-V 105
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeJavaConstructor.java
+V 108
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeJavaConstructor.java
 END
 CompilerEnvirons.java
 K 25
 svn:wc:ra_dav:version-url
-V 100
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/CompilerEnvirons.java
+V 103
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/CompilerEnvirons.java
 END
 Callable.java
 K 25
 svn:wc:ra_dav:version-url
-V 92
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Callable.java
+V 95
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Callable.java
 END
 NativeIterator.java
 K 25
 svn:wc:ra_dav:version-url
-V 98
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeIterator.java
+V 101
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeIterator.java
 END
 NativeError.java
 K 25
 svn:wc:ra_dav:version-url
-V 95
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeError.java
+V 98
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeError.java
 END
 WrapFactory.java
 K 25
 svn:wc:ra_dav:version-url
-V 95
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/WrapFactory.java
+V 98
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/WrapFactory.java
 END
 Evaluator.java
 K 25
 svn:wc:ra_dav:version-url
-V 93
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Evaluator.java
+V 96
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Evaluator.java
 END
 LazilyLoadedCtor.java
 K 25
 svn:wc:ra_dav:version-url
-V 100
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/LazilyLoadedCtor.java
+V 103
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/LazilyLoadedCtor.java
 END
 NativeGlobal.java
 K 25
 svn:wc:ra_dav:version-url
-V 96
-/svnroot/htmlunit/!svn/ver/3148/trunk/core-js/rhino/src/org/mozilla/javascript/NativeGlobal.java
+V 99
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeGlobal.java
 END
 FunctionObject.java
 K 25
 svn:wc:ra_dav:version-url
-V 98
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/FunctionObject.java
+V 101
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/FunctionObject.java
 END
 ImporterTopLevel.java
 K 25
 svn:wc:ra_dav:version-url
-V 100
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/ImporterTopLevel.java
+V 103
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/ImporterTopLevel.java
 END
 Ref.java
 K 25
 svn:wc:ra_dav:version-url
-V 87
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Ref.java
+V 90
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Ref.java
 END
 SpecialRef.java
 K 25
 svn:wc:ra_dav:version-url
-V 94
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/SpecialRef.java
+V 97
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/SpecialRef.java
+END
+CodeGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/CodeGenerator.java
 END
 NativeCall.java
 K 25
 svn:wc:ra_dav:version-url
-V 94
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeCall.java
+V 97
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeCall.java
 END
 Context.java
 K 25
 svn:wc:ra_dav:version-url
-V 91
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Context.java
+V 94
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Context.java
 END
 JavaScriptException.java
 K 25
 svn:wc:ra_dav:version-url
-V 103
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/JavaScriptException.java
+V 106
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/JavaScriptException.java
 END
 Function.java
 K 25
 svn:wc:ra_dav:version-url
-V 92
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Function.java
+V 95
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Function.java
 END
 NativeJavaTopPackage.java
 K 25
 svn:wc:ra_dav:version-url
-V 104
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeJavaTopPackage.java
+V 107
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeJavaTopPackage.java
 END
 NativeJavaArray.java
 K 25
 svn:wc:ra_dav:version-url
-V 99
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeJavaArray.java
+V 102
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeJavaArray.java
 END
 Scriptable.java
 K 25
 svn:wc:ra_dav:version-url
-V 94
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/Scriptable.java
+V 97
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/Scriptable.java
 END
 NativeFunction.java
 K 25
 svn:wc:ra_dav:version-url
-V 98
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/NativeFunction.java
+V 101
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/NativeFunction.java
 END
 InterpreterData.java
 K 25
 svn:wc:ra_dav:version-url
-V 99
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/javascript/InterpreterData.java
+V 102
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/javascript/InterpreterData.java
 END

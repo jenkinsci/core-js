@@ -1,41 +1,41 @@
 K 25
 svn:wc:ra_dav:version-url
-V 97
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/idswitch
+V 100
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/idswitch
 END
 Main.java
 K 25
 svn:wc:ra_dav:version-url
-V 107
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/idswitch/Main.java
+V 110
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/idswitch/Main.java
 END
 IdValuePair.java
 K 25
 svn:wc:ra_dav:version-url
-V 114
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/idswitch/IdValuePair.java
+V 117
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/idswitch/IdValuePair.java
 END
 SwitchGenerator.java
 K 25
 svn:wc:ra_dav:version-url
-V 118
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/idswitch/SwitchGenerator.java
+V 121
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/idswitch/SwitchGenerator.java
 END
 FileBody.java
 K 25
 svn:wc:ra_dav:version-url
-V 111
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/idswitch/FileBody.java
+V 114
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/idswitch/FileBody.java
 END
 README
 K 25
 svn:wc:ra_dav:version-url
-V 104
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/idswitch/README
+V 107
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/idswitch/README
 END
 CodePrinter.java
 K 25
 svn:wc:ra_dav:version-url
-V 114
-/svnroot/htmlunit/!svn/ver/2848/trunk/core-js/rhino/toolsrc/org/mozilla/javascript/tools/idswitch/CodePrinter.java
+V 117
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/toolsrc/org/mozilla/javascript/tools/idswitch/CodePrinter.java
 END

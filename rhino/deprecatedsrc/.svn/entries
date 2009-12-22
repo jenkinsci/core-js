@@ -1,18 +1,18 @@
-9
+10
 
 dir
-3197
-https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/trunk/core-js/rhino/deprecatedsrc
+5285
+https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/tags/core-js-2.6/rhino/deprecatedsrc
 https://htmlunit.svn.sourceforge.net/svnroot/htmlunit
 
 
 
-2008-04-08T07:47:43.744955Z
-2844
+2009-06-30T19:01:03.944705Z
+4668
 mguillem
 
 
-svn:special svn:externals svn:needs-lock
+
 
 
 
@@ -38,7 +38,7 @@ file
 
 
 
-2008-08-23T06:12:26.000000Z
+2009-12-22T20:11:50.000000Z
 30a6de07941825e6039e013d2d079ee4
 2008-04-08T07:47:43.744955Z
 2844

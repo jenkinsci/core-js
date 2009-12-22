@@ -1,11 +1,11 @@
 K 25
 svn:wc:ra_dav:version-url
-V 65
-/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc
+V 68
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/deprecatedsrc
 END
 build.xml
 K 25
 svn:wc:ra_dav:version-url
-V 75
-/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/build.xml
+V 78
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/deprecatedsrc/build.xml
 END

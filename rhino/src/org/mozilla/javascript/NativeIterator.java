@@ -39,7 +39,8 @@ import java.util.Iterator;
  * @author Norris Boyd
  */
 public final class NativeIterator extends IdScriptableObject {
-    private static final Object ITERATOR_TAG = new Object();
+    private static final long serialVersionUID = -4136968203581667681L;
+    private static final Object ITERATOR_TAG = "Iterator";
     
     static void init(ScriptableObject scope, boolean sealed) {
         // Iterator
@@ -89,6 +90,8 @@ public final class NativeIterator extends IdScriptableObject {
     public static final String ITERATOR_PROPERTY_NAME = "__iterator__";
     
     static class StopIteration extends NativeObject {
+        private static final long serialVersionUID = 2485151085722377663L;
+
         @Override
         public String getClassName() {
             return STOP_ITERATION;
@@ -195,7 +198,7 @@ public final class NativeIterator extends IdScriptableObject {
                     : ScriptRuntime.ENUMERATE_ARRAY_NO_ITERATOR);
         ScriptRuntime.setEnumNumbers(objectIterator, true);
         NativeIterator result = new NativeIterator(objectIterator);
-        result.setPrototype(NativeIterator.getClassPrototype(scope, 
+        result.setPrototype(ScriptableObject.getClassPrototype(scope, 
                                 result.getClassName()));
         result.setParentScope(scope);
         return result;

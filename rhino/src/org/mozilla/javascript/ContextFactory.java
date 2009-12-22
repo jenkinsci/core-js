@@ -40,6 +40,9 @@
 
 package org.mozilla.javascript;
 
+import java.security.AccessController;
+import java.security.PrivilegedAction;
+
 /**
  * Factory class that Rhino runtime uses to create new {@link Context}
  * instances.  A <code>ContextFactory</code> can also notify listeners
@@ -78,9 +81,6 @@ package org.mozilla.javascript;
  *     protected Context makeContext()
  *     {
  *         MyContext cx = new MyContext();
- *         // Use pure interpreter mode to allow for
- *         // {@link #observeInstructionCount(Context, int)} to work
- *         cx.setOptimizationLevel(-1);
  *         // Make Rhino runtime to call observeInstructionCount
  *         // each 10000 bytecode instructions
  *         cx.setInstructionObserverThreshold(10000);
@@ -211,7 +211,28 @@ public class ContextFactory
         hasCustomGlobal = true;
         global = factory;
     }
-
+    
+    public interface GlobalSetter {
+        public void setContextFactoryGlobal(ContextFactory factory);
+        public ContextFactory getContextFactoryGlobal();
+    }
+    
+    public synchronized static GlobalSetter getGlobalSetter() {
+        if (hasCustomGlobal) {
+            throw new IllegalStateException();
+        }
+        hasCustomGlobal = true;
+        class GlobalSetterImpl implements GlobalSetter {
+            public void setContextFactoryGlobal(ContextFactory factory) {
+                global = factory == null ? new ContextFactory() : factory;
+            }
+            public ContextFactory getContextFactoryGlobal() {
+                return global;
+            }
+        }
+        return new GlobalSetterImpl();
+    }
+    
     /**
      * Create new {@link Context} instance to be associated with the current
      * thread.
@@ -289,6 +310,7 @@ public class ContextFactory
             return false;
 
           case Context.FEATURE_ENHANCED_JAVA_ACCESS:
+          case Context.FEATURE_HTMLUNIT_WRITE_READONLY_PROPERTIES:
             return false;
         }
         // It is a bug to call the method with unknown featureIndex
@@ -350,9 +372,13 @@ public class ContextFactory
      * is installed.
      * Application can override the method to provide custom class loading.
      */
-    protected GeneratedClassLoader createClassLoader(ClassLoader parent)
+    protected GeneratedClassLoader createClassLoader(final ClassLoader parent)
     {
-        return new DefiningClassLoader(parent);
+        return AccessController.doPrivileged(new PrivilegedAction<DefiningClassLoader>() {
+            public DefiningClassLoader run(){
+                return new DefiningClassLoader(parent);
+            }
+        });
     }
 
     /**
@@ -407,8 +433,7 @@ public class ContextFactory
      * This can be used to customize {@link Context} without introducing
      * additional subclasses.
      */
-    protected void observeInstructionCount(Context cx, int instructionCount)
-    {
+    protected void observeInstructionCount(Context cx, int instructionCount) {
     }
 
     protected void onContextCreated(Context cx)

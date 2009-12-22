@@ -1,41 +1,209 @@
 K 25
 svn:wc:ra_dav:version-url
-V 88
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/org/mozilla/javascript/tests
+V 91
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests
 END
-JsTestsTest.java
+GeneratedMethodNameTest.java
 K 25
 svn:wc:ra_dav:version-url
-V 105
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/org/mozilla/javascript/tests/JsTestsTest.java
+V 120
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/GeneratedMethodNameTest.java
 END
-PrivateAccessClass.java
+Utils.java
 K 25
 svn:wc:ra_dav:version-url
-V 112
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/org/mozilla/javascript/tests/PrivateAccessClass.java
+V 102
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/Utils.java
 END
-Bug409702Test.java
+ClassShutterExceptionTest.java
 K 25
 svn:wc:ra_dav:version-url
-V 107
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/org/mozilla/javascript/tests/Bug409702Test.java
+V 122
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/ClassShutterExceptionTest.java
 END
-JavaAcessibilityTest.java
+StrictModeApiTest.java
 K 25
 svn:wc:ra_dav:version-url
 V 114
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/org/mozilla/javascript/tests/JavaAcessibilityTest.java
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/StrictModeApiTest.java
 END
 Bug419940Test.java
 K 25
 svn:wc:ra_dav:version-url
+V 110
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/Bug419940Test.java
+END
+Bug448816Test.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/Bug448816Test.java
+END
+ContextFactoryTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/ContextFactoryTest.java
+END
+NativeStringTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/NativeStringTest.java
+END
+DefineFunctionPropertiesTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/DefineFunctionPropertiesTest.java
+END
+MozillaSuiteTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/MozillaSuiteTest.java
+END
+StackTraceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/StackTraceTest.java
+END
+CustomSetterAcceptNullScriptableTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/CustomSetterAcceptNullScriptableTest.java
+END
+PrimitiveTypeScopeResolutionTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/PrimitiveTypeScopeResolutionTest.java
+END
+Bug421071Test.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/Bug421071Test.java
+END
+JsTestsTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/JsTestsTest.java
+END
+Bug482203.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/Bug482203.java
+END
+Evaluator.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/Evaluator.java
+END
+Bug409702Test.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/Bug409702Test.java
+END
+ArrayConcatTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/ArrayConcatTest.java
+END
+TypeOfTest.java
+K 25
+svn:wc:ra_dav:version-url
 V 107
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/org/mozilla/javascript/tests/Bug419940Test.java
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/TypeOfTest.java
+END
+Bug492525Test.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/Bug492525Test.java
+END
+ObserveInstructionCountTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/ObserveInstructionCountTest.java
+END
+Bug467396Test.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/Bug467396Test.java
+END
+PrivateAccessClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/PrivateAccessClass.java
+END
+Bug496585.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/Bug496585.java
+END
+GlobalParseXTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/GlobalParseXTest.java
+END
+ApplyOnPrimitiveNumberTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/ApplyOnPrimitiveNumberTest.java
+END
+GeneratedClassNameTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/GeneratedClassNameTest.java
+END
+JavaAcessibilityTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/JavaAcessibilityTest.java
+END
+ContinuationsApiTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/ContinuationsApiTest.java
 END
 DoctestsTest.java
 K 25
 svn:wc:ra_dav:version-url
-V 106
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/org/mozilla/javascript/tests/DoctestsTest.java
+V 109
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/DoctestsTest.java
+END
+ParserTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/ParserTest.java
+END
+Bug412433Test.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/Bug412433Test.java
+END
+conttest.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/org/mozilla/javascript/tests/conttest.js
 END

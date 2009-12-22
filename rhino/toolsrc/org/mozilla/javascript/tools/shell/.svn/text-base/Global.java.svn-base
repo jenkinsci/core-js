@@ -65,6 +65,7 @@ public class Global extends ImporterTopLevel
     static final long serialVersionUID = 4029130780977538005L;
 
     NativeArray history;
+    boolean attemptedJLineLoad;
     private InputStream inStream;
     private PrintStream outStream;
     private PrintStream errStream;
@@ -149,10 +150,6 @@ public class Global extends ImporterTopLevel
         history = (NativeArray) cx.newArray(this, 0);
         defineProperty("history", history, ScriptableObject.DONTENUM);
 
-        // Check if we can use JLine for better command line handling
-        InputStream jlineStream = ShellLine.getStream(this);
-        if (jlineStream != null)
-            inStream = jlineStream;
         initialized = true;
     }
 
@@ -399,7 +396,7 @@ public class Global extends ImporterTopLevel
                           String sourceName, int lineNumber)
     {
         doctestCanonicalizations = new HashMap<String,String>();
-        String[] lines = session.split("\n|\r");
+        String[] lines = session.split("[\n\r]+");
         String prompt0 = this.prompts[0].trim();
         String prompt1 = this.prompts[1].trim();
         int testCount = 0;
@@ -600,10 +597,10 @@ public class Global extends ImporterTopLevel
      * JavaScript object, it is an option object. Otherwise it is converted to
      * string denoting the last argument and options objects assumed to be
      * empty.
-     * Te following properties of the option object are processed:
+     * The following properties of the option object are processed:
      * <ul>
      * <li><tt>args</tt> - provides an array of additional command arguments
-     * <li><tt>env</tt> - explicit environment object. All its enumeratable
+     * <li><tt>env</tt> - explicit environment object. All its enumerable
      *   properties define the corresponding environment variable names.
      * <li><tt>input</tt> - the process input. If it is not
      *   java.io.InputStream, it is converted to string and sent to the process
@@ -815,7 +812,7 @@ public class Global extends ImporterTopLevel
     }
 
     /**
-     * Convert the argumnet to int32 number.
+     * Convert the argument to int32 number.
      */
     public static Object toint32(Context cx, Scriptable thisObj, Object[] args,
                                  Function funObj)
@@ -827,6 +824,13 @@ public class Global extends ImporterTopLevel
     }
 
     public InputStream getIn() {
+        if (inStream == null && !attemptedJLineLoad) {
+            // Check if we can use JLine for better command line handling
+            InputStream jlineStream = ShellLine.getStream(this);
+            if (jlineStream != null)
+                inStream = jlineStream;
+            attemptedJLineLoad = true;
+        }
         return inStream == null ? System.in : inStream;
     }
 
@@ -1037,7 +1041,11 @@ public class Global extends ImporterTopLevel
                 }
             } else {
                 File f = new File(filePath);
-
+                if (!f.exists()) {
+                    throw new FileNotFoundException("File not found: " + filePath);
+                } else if (!f.canRead()) {
+                    throw new IOException("Cannot read file: " + filePath);
+                }
                 long length = f.length();
                 chunkLength = (int)length;
                 if (chunkLength != length)
@@ -1176,6 +1184,7 @@ class PipeThread extends Thread {
         this.to = to;
     }
 
+    @Override
     public void run() {
         try {
             Global.pipe(fromProcess, from, to);
