@@ -1,35 +1,35 @@
 K 25
 svn:wc:ra_dav:version-url
-V 45
-/svnroot/htmlunit/!svn/ver/3197/trunk/core-js
+V 48
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6
 END
 LICENSE.txt
 K 25
 svn:wc:ra_dav:version-url
-V 57
-/svnroot/htmlunit/!svn/ver/2858/trunk/core-js/LICENSE.txt
+V 60
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/LICENSE.txt
 END
 rhinoDiff.txt
 K 25
 svn:wc:ra_dav:version-url
-V 59
-/svnroot/htmlunit/!svn/ver/3196/trunk/core-js/rhinoDiff.txt
+V 62
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhinoDiff.txt
 END
 MPL-1.1.html
 K 25
 svn:wc:ra_dav:version-url
-V 58
-/svnroot/htmlunit/!svn/ver/2852/trunk/core-js/MPL-1.1.html
+V 61
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/MPL-1.1.html
 END
 pom.xml
 K 25
 svn:wc:ra_dav:version-url
-V 53
-/svnroot/htmlunit/!svn/ver/3197/trunk/core-js/pom.xml
+V 56
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/pom.xml
 END
 build.xml
 K 25
 svn:wc:ra_dav:version-url
-V 55
-/svnroot/htmlunit/!svn/ver/3196/trunk/core-js/build.xml
+V 58
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/build.xml
 END

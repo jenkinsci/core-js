@@ -62,6 +62,16 @@ public class ShellLine {
         // We don't want a compile-time dependency on the JLine jar, so use
         // reflection to load and reference the JLine classes.
         ClassLoader classLoader = ShellLine.class.getClassLoader();
+        if (classLoader == null) {
+            // If the attempt to get a class specific class loader above failed
+            // then fallback to the system class loader.
+            classLoader = ClassLoader.getSystemClassLoader();
+        }
+        if (classLoader == null) {
+            // If for some reason we still don't have a handle to a class
+            // loader then give up (avoid a NullPointerException).
+            return null;
+        }
         Class<?> readerClass = Kit.classOrNull(classLoader, "jline.ConsoleReader");
         if (readerClass == null)
             return null;
@@ -119,7 +129,7 @@ class FlexibleCompletor implements java.lang.reflect.InvocationHandler {
         if (method.equals(this.completeMethod)) {
             int result = complete((String)args[0], ((Integer) args[1]).intValue(),
                     (List<String>) args[2]);
-            return new Integer(result);
+            return Integer.valueOf(result);
         }
         throw new NoSuchMethodError(method.toString());
     }
@@ -133,12 +143,13 @@ class FlexibleCompletor implements java.lang.reflect.InvocationHandler {
         // fragment as a prefix and return those for autocompletion.
         int m = cursor - 1;
         while (m >= 0) {
-            char c = buffer.charAt(m--);
+            char c = buffer.charAt(m);
             if (!Character.isJavaIdentifierPart(c) && c != '.')
                 break;
+            m--;
         }
         String namesAndDots = buffer.substring(m+1, cursor);
-        String[] names = namesAndDots.split("\\.");
+        String[] names = namesAndDots.split("\\.", -1);
         Scriptable obj = this.global;
         for (int i=0; i < names.length - 1; i++) {
             Object val = obj.get(names[i], global);

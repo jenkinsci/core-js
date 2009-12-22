@@ -1,17 +1,17 @@
 K 25
 svn:wc:ra_dav:version-url
-V 55
-/svnroot/htmlunit/!svn/ver/3148/trunk/core-js/rhino/src
+V 58
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src
 END
 manifest
 K 25
 svn:wc:ra_dav:version-url
-V 64
-/svnroot/htmlunit/!svn/ver/2850/trunk/core-js/rhino/src/manifest
+V 67
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/manifest
 END
 build.xml
 K 25
 svn:wc:ra_dav:version-url
-V 65
-/svnroot/htmlunit/!svn/ver/2850/trunk/core-js/rhino/src/build.xml
+V 68
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/build.xml
 END

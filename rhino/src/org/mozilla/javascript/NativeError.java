@@ -50,7 +50,7 @@ final class NativeError extends IdScriptableObject
 {
     static final long serialVersionUID = -5338413581437645187L;
 
-    private static final Object ERROR_TAG = new Object();
+    private static final Object ERROR_TAG = "Error";
 
     static void init(Scriptable scope, boolean sealed)
     {
@@ -58,7 +58,7 @@ final class NativeError extends IdScriptableObject
         ScriptableObject.putProperty(obj, "name", "Error");
         ScriptableObject.putProperty(obj, "message", "");
         ScriptableObject.putProperty(obj, "fileName", "");
-        ScriptableObject.putProperty(obj, "lineNumber", new Integer(0));
+        ScriptableObject.putProperty(obj, "lineNumber", Integer.valueOf(0));
         obj.exportAsJSClass(MAX_PROTOTYPE_ID, scope, sealed);
     }
 
@@ -80,7 +80,7 @@ final class NativeError extends IdScriptableObject
                 if (arglen >= 3) {
                     int line = ScriptRuntime.toInt32(args[2]);
                     ScriptableObject.putProperty(obj, "lineNumber",
-                            new Integer(line));
+                            Integer.valueOf(line));
                 }
             }
         }
@@ -90,7 +90,7 @@ final class NativeError extends IdScriptableObject
             int[] linep = new int[1];
             String fileName = Context.getSourcePositionFromStack(linep);
             ScriptableObject.putProperty(obj, "lineNumber", 
-                    new Integer(linep[0]));
+                    Integer.valueOf(linep[0]));
             if(arglen < 2) {
                 ScriptableObject.putProperty(obj, "fileName", fileName);
             }

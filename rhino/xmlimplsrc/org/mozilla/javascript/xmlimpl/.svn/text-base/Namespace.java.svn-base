@@ -50,7 +50,7 @@ class Namespace extends IdScriptableObject
 {
     static final long serialVersionUID = -5765755238131301744L;
 
-    private static final Object NAMESPACE_TAG = new Object();
+    private static final Object NAMESPACE_TAG = "Namespace";
 
     private Namespace prototype;
     private XmlNode.Namespace ns;
@@ -100,6 +100,11 @@ class Namespace extends IdScriptableObject
     public boolean equals(Object obj) {
         if (!(obj instanceof Namespace)) return false;
         return equals((Namespace)obj);
+    }
+    
+    @Override
+    public int hashCode() {
+        return uri().hashCode();
     }
 
     @Override

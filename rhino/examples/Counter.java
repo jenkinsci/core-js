@@ -39,6 +39,8 @@
 import org.mozilla.javascript.*;
 
 public class Counter extends ScriptableObject {
+    private static final long serialVersionUID = 438270592527335642L;
+
     // The zero-argument constructor used by Rhino runtime to create instances
     public Counter() { }
 
@@ -46,6 +48,7 @@ public class Counter extends ScriptableObject {
     public void jsConstructor(int a) { count = a; }
 
     // The class name is defined by the getClassName method
+    @Override
     public String getClassName() { return "Counter"; }
 
     // The method jsGet_count defines the count property.

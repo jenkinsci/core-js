@@ -45,7 +45,7 @@ import org.w3c.dom.*;
 import org.mozilla.javascript.tools.shell.*;
 
 /**
- * @version $Id: JsDriver.java 2849 2008-04-08 08:05:56Z mguillem $
+ * @version $Id: JsDriver.java 4668 2009-06-30 19:01:03Z mguillem $
  */
 public class JsDriver {
     private JsDriver() {
@@ -67,51 +67,31 @@ public class JsDriver {
         private String[] list;
         private String[] skip;
 
-        Tests(File testDirectory, String[] list, String[] skip) {
+        Tests(File testDirectory, String[] list, String[] skip) throws IOException {
             this.testDirectory = testDirectory;
             this.list = getTestList(list);
             this.skip = getTestList(skip);
         }
         
-        private String[] getTestList(String[] tests) {
+        private String[] getTestList(String[] tests) throws IOException {
           ArrayList<String> list = new ArrayList<String>();
           for (int i=0; i < tests.length; i++) {
             if (tests[i].startsWith("@"))
-              addTestsFromFile(tests[i].substring(1), list);
+              TestUtils.addTestsFromFile(tests[i].substring(1), list);
             else
               list.add(tests[i]);
           }
-          return (String[])list.toArray(new String[0]);
-        }
-        
-        private void addTestsFromFile(String filename, ArrayList<String> list) {
-            try {
-                Properties props = new Properties();
-                props.load(new FileInputStream(new File(filename)));
-                for (Object obj: props.keySet())
-                    list.add(obj.toString());
-            } catch (IOException e) {
-                throw new RuntimeException("Could not read file '" + filename + "'", e);
-            }        	
-        }
-
-        private boolean matches(String[] patterns, String path) {
-            for (int i=0; i<patterns.length; i++) {
-                if (path.startsWith(patterns[i])) {
-                    return true;
-                }
-            }
-            return false;
+          return list.toArray(new String[0]);
         }
 
         private boolean matches(String path) {
             if (list.length == 0) return true;
-            return matches(list, path);
+            return TestUtils.matches(list, path);
         }
 
         private boolean excluded(String path) {
             if (skip.length == 0) return false;
-            return matches(skip, path);
+            return TestUtils.matches(skip, path);
         }
 
         private void addFiles(List<Script> rv, String prefix, File directory) {
@@ -151,7 +131,7 @@ public class JsDriver {
         Script[] getFiles() {
             ArrayList<Script> rv = new ArrayList<Script>();
             addFiles(rv, "", testDirectory);
-            return (Script[])rv.toArray(new Script[0]);
+            return rv.toArray(new Script[0]);
         }
     }
 
@@ -168,7 +148,8 @@ public class JsDriver {
             this.trace = trace;
         }
 
-        void running(File jsFile) {
+        @Override
+        public void running(File jsFile) {
             try {
                 console.println("Running: " + jsFile.getCanonicalPath());
                 this.jsFile = jsFile;
@@ -177,30 +158,35 @@ public class JsDriver {
             }
         }
 
-        void failed(String s) {
+        @Override
+        public void failed(String s) {
             console.println("Failed: " + jsFile + ": " + s);
             failed = true;
         }
 
-        void threw(Throwable t) {
+        @Override
+        public void threw(Throwable t) {
             console.println("Failed: " + jsFile + " with exception.");
             console.println(ShellTest.getStackTrace(t));
             failed = true;
         }
 
-        void timedOut() {
+        @Override
+        public void timedOut() {
             console.println("Failed: " + jsFile + ": timed out.");
             failed = true;
         }
 
-        void exitCodesWere(int expected, int actual) {
+        @Override
+        public void exitCodesWere(int expected, int actual) {
             if (expected != actual) {
                 console.println("Failed: " + jsFile + " expected " + expected + " actual " + actual);
                 failed = true;
             }
         }
 
-        void outputWas(String s) {
+        @Override
+        public void outputWas(String s) {
             if (!failed) {
                 console.println("Passed: " + jsFile);
                 if (trace) {
@@ -282,32 +268,38 @@ public class JsDriver {
             this.failureHtml = failureHtml;
         }
 
-        void running(File file) {
+        @Override
+        public void running(File file) {
         }
 
-        void failed(String s) {
+        @Override
+        public void failed(String s) {
             failed = true;
             setContent(failureHtml, "failureDetails.reason", "Failure reason: \n" + s);
         }
 
-        void exitCodesWere(int expected, int actual) {
+        @Override
+        public void exitCodesWere(int expected, int actual) {
             if (expected != actual) {
                 failed = true;
                 setContent(failureHtml, "failureDetails.reason", "expected exit code " + expected + " but got " + actual);
             }
         }
 
-        void threw(Throwable e) {
+        @Override
+        public void threw(Throwable e) {
             failed = true;
             setContent(failureHtml, "failureDetails.reason", "Threw Java exception:\n" + newlineLineEndings(ShellTest.getStackTrace(e)));
         }
 
-        void timedOut() {
+        @Override
+        public void timedOut() {
             failed = true;
             setContent(failureHtml, "failureDetails.reason", "Timed out.");
         }
 
-        void outputWas(String s) {
+        @Override
+        public void outputWas(String s) {
             this.output = s;
         }
 
@@ -376,7 +368,8 @@ public class JsDriver {
 			root.appendChild(target);
 		}
 		
-		void running(File file) {
+		@Override
+		public void running(File file) {
 			this.start = new Date();
 		}
 		
@@ -396,31 +389,36 @@ public class JsDriver {
 			e.setTextContent( newlineLineEndings(content) );
 		}
 		
-		void exitCodesWere(int expected, int actual) {
+        @Override
+        public void exitCodesWere(int expected, int actual) {
 			finish();
 			Element exit = createElement(target, "exit");
 			exit.setAttribute("expected", String.valueOf(expected));
 			exit.setAttribute("actual", String.valueOf(actual));
 		}
 		
-		void timedOut() {
+        @Override
+        public void timedOut() {
 			finish();
 			createElement(target, "timedOut");
 		}
 		
-		void failed(String s) {
+        @Override
+        public void failed(String s) {
 			finish();
 			Element failed = createElement(target, "failed");
 			setTextContent(failed, s);
 		}
 		
-		void outputWas(String message) {
+        @Override
+        public void outputWas(String message) {
 			finish();
 			Element output = createElement(target, "output");
 			setTextContent(output, message);
 		}
 		
-		void threw(Throwable t) {
+        @Override
+        public void threw(Throwable t) {
 			finish();
 			Element threw = createElement(target, "threw");
 			setTextContent(threw, ShellTest.getStackTrace(t));
@@ -578,7 +576,8 @@ public class JsDriver {
             this.timeout = timeout;
         }
 
-        int getTimeoutMilliseconds() {
+        @Override
+        public int getTimeoutMilliseconds() {
             return timeout;
         }
     }
@@ -679,7 +678,7 @@ public class JsDriver {
             }
 
             String getValue() {
-                return (String)values.get(0);
+                return values.get(0);
             }
 
             boolean getSwitch() {
@@ -692,18 +691,20 @@ public class JsDriver {
             }
 
             String[] getValues() {
-                return (String[])values.toArray(new String[0]);
+                return values.toArray(new String[0]);
             }
 
             void process(List<String> arguments) {
-                String option = (String)arguments.get(0);
+                String option = arguments.get(0);
                 String dashLetter = (letterOption == null) ? (String)null : "-" + letterOption;
                 if (option.equals(dashLetter) || option.equals("--" + wordOption)) {
                     arguments.remove(0);
                     if (flag) {
                         values.add(0, (String)null );
                     } else if (array) {
-                        while( arguments.size() > 0 && !( (String)arguments.get(0) ).startsWith("-") ) {
+                        while (arguments.size() > 0 &&
+                               !arguments.get(0).startsWith("-"))
+                        {
                             values.add(arguments.remove(0));
                         }
                     } else {
@@ -801,7 +802,7 @@ public class JsDriver {
         
         void process(List<String> arguments) {
             while(arguments.size() > 0) {
-                String option = (String)arguments.get(0);
+                String option = arguments.get(0);
                 if (option.startsWith("--")) {
                     //    preprocess --name=value options into --name value
                     if (option.indexOf("=") != -1) {
@@ -820,7 +821,7 @@ public class JsDriver {
                 int lengthBefore = arguments.size();
                 for (int i=0; i<options.size(); i++) {
                     if (arguments.size() > 0) {
-                        ((Option)options.get(i)).process(arguments);
+                        options.get(i).process(arguments);
                     }
                 }
                 

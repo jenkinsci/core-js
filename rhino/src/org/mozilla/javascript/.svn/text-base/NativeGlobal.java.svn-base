@@ -126,17 +126,17 @@ public class NativeGlobal implements Serializable, IdFunctionCall
             scope, "undefined", Undefined.instance,
             ScriptableObject.DONTENUM);
 
-        String[] errorMethods = Kit.semicolonSplit(""
-                                    +"ConversionError;"
-                                    +"EvalError;"
-                                    +"RangeError;"
-                                    +"ReferenceError;"
-                                    +"SyntaxError;"
-                                    +"TypeError;"
-                                    +"URIError;"
-                                    +"InternalError;"
-                                    +"JavaException;"
-                                    );
+        String[] errorMethods = {
+                "ConversionError",
+                "EvalError",
+                "RangeError",
+                "ReferenceError",
+                "SyntaxError",
+                "TypeError",
+                "URIError",
+                "InternalError",
+                "JavaException"
+        };
 
         /*
             Each error constructor gets its own Error object as a prototype,
@@ -261,7 +261,7 @@ public class NativeGlobal implements Serializable, IdFunctionCall
         char c;
         do {
             c = s.charAt(start);
-            if (!Character.isWhitespace(c))
+            if (!isStrWhiteSpaceChar(c))
                 break;
             start++;
         } while (start < len);
@@ -299,6 +299,38 @@ public class NativeGlobal implements Serializable, IdFunctionCall
     }
 
     /**
+     * Indicates if the character is a Str whitespace char according to ECMA spec:
+     * StrWhiteSpaceChar :::
+      <TAB>
+      <SP>
+      <NBSP>
+      <FF>
+      <VT>
+      <CR>
+      <LF>
+      <LS>
+      <PS>
+      <USP>
+     */
+    static boolean isStrWhiteSpaceChar(char c)
+    {
+    	switch (c) {
+    		case '\t': // <TAB>
+    		case ' ': // <SP>
+    		case '\u00A0': // <NBSP>
+    		case '\u000C': // <FF>
+    		case '\u000B': // <VT>
+    		case '\r': // <CR>
+    		case '\n': // <LF>
+    		case '\u2028': // <LS>
+    		case '\u2029': // <PS>
+    			return true;
+    		default:
+    			return Character.getType(c) == Character.SPACE_SEPARATOR;
+    	}
+    }
+
+    /**
      * The global method parseFloat, as per ECMA-262 15.1.2.3.
      *
      * @param args the arguments to parseFloat, ignoring args[>=1]
@@ -318,7 +350,7 @@ public class NativeGlobal implements Serializable, IdFunctionCall
                 return ScriptRuntime.NaNobj;
             }
             c = s.charAt(start);
-            if (!TokenStream.isJSSpace(c)) {
+            if (!isStrWhiteSpaceChar(c)) {
                 break;
             }
             ++start;
@@ -507,7 +539,7 @@ public class NativeGlobal implements Serializable, IdFunctionCall
     private Object js_eval(Context cx, Scriptable scope, Scriptable thisObj, Object[] args)
     {
         if (thisObj.getParentScope() == null) {
-            // We allow indirect calls to eval as long as the script will execute in
+            // We allow indirect calls to eval as long as the script will execute in 
             // the global scope.
             return ScriptRuntime.evalSpecial(cx, scope, thisObj, args, "eval code", 1);
         }
@@ -612,7 +644,7 @@ public class NativeGlobal implements Serializable, IdFunctionCall
 
     private static char toHexChar(int i) {
         if (i >> 4 != 0) Kit.codeBug();
-        return (char)((i < 10) ? i + '0' : i - 10 + 'a');
+        return (char)((i < 10) ? i + '0' : i - 10 + 'A');
     }
 
     private static int unHex(char c) {
@@ -772,7 +804,7 @@ public class NativeGlobal implements Serializable, IdFunctionCall
         return utf8Length;
     }
 
-    private static final Object FTAG = new Object();
+    private static final Object FTAG = "Global";
 
     private static final int
         Id_decodeURI           =  1,

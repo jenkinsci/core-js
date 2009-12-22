@@ -54,7 +54,7 @@ final class NativeDate extends IdScriptableObject
 {
     static final long serialVersionUID = -8307438915861678966L;
 
-    private static final Object DATE_TAG = new Object();
+    private static final Object DATE_TAG = "Date";
 
     private static final String js_NaN_date_str = "Invalid Date";
 
@@ -1130,7 +1130,7 @@ final class NativeDate extends IdScriptableObject
             }
             formatter = localeDateFormatter;
             break;
-          default: formatter = null; // unreachable
+          default: throw new AssertionError(); // unreachable
         }
 
         synchronized (formatter) {

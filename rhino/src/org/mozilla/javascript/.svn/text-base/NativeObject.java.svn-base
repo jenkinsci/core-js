@@ -40,6 +40,8 @@
  * ***** END LICENSE BLOCK ***** */
 
 package org.mozilla.javascript;
+import java.util.Map;
+import java.util.LinkedHashMap;
 
 /**
  * This class implements the Object native object.
@@ -50,7 +52,7 @@ public class NativeObject extends IdScriptableObject
 {
     static final long serialVersionUID = -6345305608474346996L;
 
-    private static final Object OBJECT_TAG = new Object();
+    private static final Object OBJECT_TAG = "Object";
 
     static void init(Scriptable scope, boolean sealed)
     {
@@ -68,6 +70,38 @@ public class NativeObject extends IdScriptableObject
     public String toString()
     {
         return ScriptRuntime.defaultObjectToString(this);
+    }
+
+    @Override
+    protected void fillConstructorProperties(IdFunctionObject ctor)
+    {
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_getPrototypeOf,
+                "getPrototypeOf", 1);
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_keys,
+                "keys", 1);
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_getOwnPropertyNames,
+                "getOwnPropertyNames", 1);
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_getOwnPropertyDescriptor,
+                "getOwnPropertyDescriptor", 2);
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_defineProperty,
+                "defineProperty", 3);
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_isExtensible,
+                "isExtensible", 1);
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_preventExtensions,
+                "preventExtensions", 1);
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_defineProperties,
+                "defineProperties", 2);
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_create,
+                "create", 2);
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_isSealed,
+                "isSealed", 1);
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_isFrozen,
+                "isFrozen", 1);
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_seal,
+                "seal", 1);
+        addIdFunctionProperty(ctor, OBJECT_TAG, ConstructorId_freeze,
+                "freeze", 1);
+        super.fillConstructorProperties(ctor);
     }
 
     @Override
@@ -256,6 +290,156 @@ public class NativeObject extends IdScriptableObject
               }
               return Undefined.instance;
 
+          case ConstructorId_getPrototypeOf:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                Scriptable obj = ensureScriptable(arg);
+                return obj.getPrototype();
+              }
+          case ConstructorId_keys:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                Scriptable obj = ensureScriptable(arg);
+                Object[] ids = obj.getIds();
+                for (int i = 0; i < ids.length; i++) {
+                  ids[i] = ScriptRuntime.toString(ids[i]);
+                }
+                return cx.newArray(scope, ids);
+              }
+          case ConstructorId_getOwnPropertyNames:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                ScriptableObject obj = ensureScriptableObject(arg);
+                Object[] ids = obj.getAllIds();
+                for (int i = 0; i < ids.length; i++) {
+                  ids[i] = ScriptRuntime.toString(ids[i]);
+                }
+                return cx.newArray(scope, ids);
+              }
+          case ConstructorId_getOwnPropertyDescriptor:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                // TODO(norris): There's a deeper issue here if
+                // arg instanceof Scriptable. Should we create a new
+                // interface to admit the new ECMAScript 5 operations?
+                ScriptableObject obj = ensureScriptableObject(arg);
+                Object nameArg = args.length < 2 ? Undefined.instance : args[1];
+                String name = ScriptRuntime.toString(nameArg);
+                Scriptable desc = obj.getOwnPropertyDescriptor(cx, name);
+                return desc == null ? Undefined.instance : desc;
+              }
+          case ConstructorId_defineProperty:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                ScriptableObject obj = ensureScriptableObject(arg);
+                Object name = args.length < 2 ? Undefined.instance : args[1];
+                Object descArg = args.length < 3 ? Undefined.instance : args[2];
+                ScriptableObject desc = ensureScriptableObject(descArg);
+                obj.defineOwnProperty(cx, name, desc);
+                return obj;
+              }
+          case ConstructorId_isExtensible:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                ScriptableObject obj = ensureScriptableObject(arg);
+                return obj.isExtensible();
+              }
+          case ConstructorId_preventExtensions:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                ScriptableObject obj = ensureScriptableObject(arg);
+                obj.preventExtensions();
+                return obj;
+              }
+          case ConstructorId_defineProperties:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                ScriptableObject obj = ensureScriptableObject(arg);
+                Object propsObj = args.length < 2 ? Undefined.instance : args[1];
+                Scriptable props = Context.toObject(propsObj, getParentScope());
+                obj.defineOwnProperties(cx, ensureScriptableObject(props));
+                return obj;
+        }
+          case ConstructorId_create:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                Scriptable obj = ensureScriptable(arg);
+
+                ScriptableObject newObject = new NativeObject();
+                newObject.setParentScope(this.getParentScope());
+                newObject.setPrototype(obj);
+
+                if (args.length > 1 && args[1] != Undefined.instance) {
+                  Scriptable props = Context.toObject(args[1], getParentScope());
+                  newObject.defineOwnProperties(cx, ensureScriptableObject(props));
+                }
+
+                return newObject;
+              }
+
+          case ConstructorId_isSealed:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                ScriptableObject obj = ensureScriptableObject(arg);
+
+                for (Object name: obj.getAllIds()) {
+                  Object configurable = obj.getOwnPropertyDescriptor(cx, name).get("configurable");
+                  if (Boolean.TRUE.equals(configurable)) 
+                    return false;
+                }
+
+                return !obj.isExtensible();
+              }
+          case ConstructorId_isFrozen:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                ScriptableObject obj = ensureScriptableObject(arg);
+
+                for (Object name: obj.getAllIds()) {
+                  ScriptableObject desc = obj.getOwnPropertyDescriptor(cx, name);
+                  if (Boolean.TRUE.equals(desc.get("configurable"))) 
+                    return false;
+                  if (isDataDescriptor(desc) && Boolean.TRUE.equals(desc.get("writable")))
+                    return false;
+                }
+
+                return !obj.isExtensible();
+              }
+          case ConstructorId_seal:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                ScriptableObject obj = ensureScriptableObject(arg);
+
+                for (Object name: obj.getAllIds()) {
+                  ScriptableObject desc = obj.getOwnPropertyDescriptor(cx, name);
+                  if (Boolean.TRUE.equals(desc.get("configurable"))) {
+                    desc.put("configurable", desc, false);
+                    obj.defineOwnProperty(cx, name, desc); 
+                  }
+                }
+                obj.preventExtensions();
+
+                return obj;
+              }
+          case ConstructorId_freeze:
+              {
+                Object arg = args.length < 1 ? Undefined.instance : args[0];
+                ScriptableObject obj = ensureScriptableObject(arg);
+
+                for (Object name: obj.getAllIds()) {
+                  ScriptableObject desc = obj.getOwnPropertyDescriptor(cx, name);
+                  if (isDataDescriptor(desc) && Boolean.TRUE.equals(desc.get("writable")))
+                    desc.put("writable", desc, false);
+                  if (Boolean.TRUE.equals(desc.get("configurable")))
+                    desc.put("configurable", desc, false);
+                  obj.defineOwnProperty(cx, name, desc);
+                }
+                obj.preventExtensions();
+
+                return obj;
+              }
+
+
           default:
             throw new IllegalArgumentException(String.valueOf(id));
         }
@@ -303,6 +487,20 @@ public class NativeObject extends IdScriptableObject
     }
 
     private static final int
+        ConstructorId_getPrototypeOf = -1,
+        ConstructorId_keys = -2,
+        ConstructorId_getOwnPropertyNames = -3,
+        ConstructorId_getOwnPropertyDescriptor = -4,
+        ConstructorId_defineProperty = -5,
+        ConstructorId_isExtensible = -6,
+        ConstructorId_preventExtensions = -7,
+        ConstructorId_defineProperties= -8,
+        ConstructorId_create = -9,
+        ConstructorId_isSealed = -10,
+        ConstructorId_isFrozen = -11,
+        ConstructorId_seal = -12,
+        ConstructorId_freeze = -13,
+
         Id_constructor           = 1,
         Id_toString              = 2,
         Id_toLocaleString        = 3,

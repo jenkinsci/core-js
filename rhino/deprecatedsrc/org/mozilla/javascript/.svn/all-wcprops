@@ -1,23 +1,23 @@
 K 25
 svn:wc:ra_dav:version-url
-V 88
-/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript
+V 91
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/deprecatedsrc/org/mozilla/javascript
 END
 PropertyException.java
 K 25
 svn:wc:ra_dav:version-url
-V 111
-/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/PropertyException.java
+V 114
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/deprecatedsrc/org/mozilla/javascript/PropertyException.java
 END
 NotAFunctionException.java
 K 25
 svn:wc:ra_dav:version-url
-V 115
-/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/NotAFunctionException.java
+V 118
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/deprecatedsrc/org/mozilla/javascript/NotAFunctionException.java
 END
 ClassDefinitionException.java
 K 25
 svn:wc:ra_dav:version-url
-V 118
-/svnroot/htmlunit/!svn/ver/2844/trunk/core-js/rhino/deprecatedsrc/org/mozilla/javascript/ClassDefinitionException.java
+V 121
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/deprecatedsrc/org/mozilla/javascript/ClassDefinitionException.java
 END

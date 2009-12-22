@@ -36,16 +36,23 @@
 
 package org.mozilla.javascript.xmlimpl;
 
-import java.util.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import org.w3c.dom.*;
-
-import org.mozilla.javascript.*;
-
-//    Disambiguate with org.mozilla.javascript
+import org.mozilla.javascript.Undefined;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.ProcessingInstruction;
+import org.w3c.dom.UserDataHandler;
 
-class XmlNode {
+class XmlNode implements Serializable {
     private static final String XML_NAMESPACES_NAMESPACE_URI = "http://www.w3.org/2000/xmlns/";
 
     private static final String USER_DATA_XMLNODE_KEY = XmlNode.class.getName();
@@ -87,7 +94,11 @@ class XmlNode {
             document = processor.newDocument();
         }
         Node referenceDom = (reference != null) ? reference.dom : null;
-        Element e = document.createElementNS(qname.getNamespace().getUri(), qname.qualify(referenceDom));
+        Namespace ns = qname.getNamespace();
+        Element e = (ns == null || ns.getUri().length() == 0)
+            ? document.createElementNS(null, qname.getLocalName())
+            : document.createElementNS(ns.getUri(),
+                                       qname.qualify(referenceDom));
         if (value != null) {
             e.appendChild(document.createTextNode(value));
         }
@@ -118,10 +129,7 @@ class XmlNode {
 
     private static final long serialVersionUID = 1L;
 
-    private UserDataHandler events = new UserDataHandler() {
-        public void handle(short operation, String key, Object data, Node src, Node dest) {
-        }
-    };
+    private UserDataHandler events = new XmlNodeUserDataHandler();
 
     private Node dom;
 
@@ -327,6 +335,13 @@ class XmlNode {
     Namespace getNamespaceDeclaration() {
         if (dom.getPrefix() == null) return getNamespaceDeclaration("");
         return getNamespaceDeclaration(dom.getPrefix());
+    }
+
+    static class XmlNodeUserDataHandler implements UserDataHandler, Serializable {
+        private static final long serialVersionUID = 4666895518900769588L;
+
+        public void handle(short operation, String key, Object data, Node src, Node dest) {
+        }
     }
 
     private static class Namespaces {
@@ -577,7 +592,13 @@ class XmlNode {
         }
     }
 
-    static class Namespace {
+    static class Namespace implements Serializable {
+
+        /**
+         * Serial version id for Namespace with fields prefix and uri
+         */
+        private static final long serialVersionUID = 4073904386884677090L;
+
         static Namespace create(String prefix, String uri) {
             if (prefix == null) throw new IllegalArgumentException("Empty string represents default namespace prefix");
             if (uri == null) throw new IllegalArgumentException("Namespace may not lack a URI");
@@ -644,7 +665,9 @@ class XmlNode {
     }
 
     //    TODO    Where is this class used?  No longer using it in QName implementation
-    static class QName {
+    static class QName implements Serializable {
+        private static final long serialVersionUID = -6587069811691451077L;
+
         static QName create(Namespace namespace, String localName) {
             //    A null namespace indicates a wild-card match for any namespace
             //    A null localName indicates "*" from the point of view of ECMA357
@@ -689,10 +712,23 @@ class XmlNode {
             return equals(one.getUri(), two.getUri());
         }
 
-        final boolean isEqualTo(QName other) {
+        final boolean equals(QName other) {
             if (!namespacesEqual(this.namespace, other.namespace)) return false;
             if (!equals(this.localName, other.localName)) return false;
             return true;
+        }
+        
+        @Override
+        public boolean equals(Object obj) {
+            if(!(obj instanceof QName)) {
+                return false;
+            }
+            return equals((QName)obj);
+        }
+        
+        @Override
+        public int hashCode() {
+            return localName == null ? 0 : localName.hashCode();
         }
 
         void lookupPrefix(org.w3c.dom.Node node) {
@@ -754,7 +790,8 @@ class XmlNode {
         }
     }
 
-    static class InternalList {
+    static class InternalList implements Serializable {
+        private static final long serialVersionUID = -3633151157292048978L;
         private List<XmlNode> list;
 
         InternalList() {

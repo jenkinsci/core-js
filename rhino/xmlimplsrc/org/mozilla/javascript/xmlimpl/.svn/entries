@@ -1,18 +1,18 @@
-9
+10
 
 dir
-3197
-https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl
+5285
+https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl
 https://htmlunit.svn.sourceforge.net/svnroot/htmlunit
 
 
 
-2008-04-08T07:58:33.286987Z
-2847
+2009-06-30T19:04:49.558264Z
+4669
 mguillem
 
 
-svn:special svn:externals svn:needs-lock
+
 
 
 
@@ -32,10 +32,10 @@ file
 
 
 
-2008-08-23T06:13:02.000000Z
-a5e58a5da2c43ed6f56d36ed51dc6940
-2008-04-08T07:58:33.286987Z
-2847
+2009-12-22T20:11:50.000000Z
+f3c6f6e4d485631963bcb93c16eebdb2
+2009-06-30T19:04:49.558264Z
+4669
 mguillem
 has-props
 
@@ -58,7 +58,7 @@ has-props
 
 
 
-23066
+23144
 
 XmlProcessor.java
 file
@@ -66,10 +66,10 @@ file
 
 
 
-2008-08-23T06:13:02.000000Z
-77ebcb5424431faeaf107d4771558789
-2008-04-08T07:58:33.286987Z
-2847
+2009-12-22T20:11:50.000000Z
+31adf01b5d1512038c38f2b85b5796bd
+2008-11-19T17:11:38.108303Z
+3785
 mguillem
 has-props
 
@@ -92,7 +92,7 @@ has-props
 
 
 
-16303
+17002
 
 QName.java
 file
@@ -100,10 +100,10 @@ file
 
 
 
-2008-08-23T06:13:02.000000Z
-f378b4018390be4718e90e7ed15bccfe
-2008-04-08T07:58:33.286987Z
-2847
+2009-12-22T20:11:50.000000Z
+c0b660d48a319ea209eb84e343652488
+2009-06-30T19:04:49.558264Z
+4669
 mguillem
 has-props
 
@@ -126,7 +126,7 @@ has-props
 
 
 
-12090
+12167
 
 XMLName.java
 file
@@ -134,7 +134,7 @@ file
 
 
 
-2008-08-23T06:13:02.000000Z
+2009-12-22T20:11:50.000000Z
 a336ab2eb7a5f3eb50ab69c118efe7ac
 2008-04-08T07:58:33.286987Z
 2847
@@ -168,7 +168,7 @@ file
 
 
 
-2008-08-23T06:13:02.000000Z
+2009-12-22T20:11:50.000000Z
 20ad8327cc5b5d24130ff3311d0f9799
 2008-04-08T07:58:33.286987Z
 2847
@@ -202,10 +202,10 @@ file
 
 
 
-2008-08-23T06:13:02.000000Z
-d511b676695904c5854538885c22a97d
-2008-04-08T07:58:33.286987Z
-2847
+2009-12-22T20:11:50.000000Z
+8b63707174afd3e264218d62000beb3a
+2009-06-30T19:04:49.558264Z
+4669
 mguillem
 has-props
 
@@ -228,7 +228,7 @@ has-props
 
 
 
-30327
+31705
 
 XMLCtor.java
 file
@@ -236,10 +236,10 @@ file
 
 
 
-2008-08-23T06:13:02.000000Z
-fbcd4d3bcf85594a2f140180ba28e994
-2008-04-08T07:58:33.286987Z
-2847
+2009-12-22T20:11:50.000000Z
+4782d97864ed1b1ce26c9717f765c0cf
+2008-11-19T17:11:38.108303Z
+3785
 mguillem
 has-props
 
@@ -262,7 +262,7 @@ has-props
 
 
 
-10145
+10142
 
 XMLLibImpl.java
 file
@@ -270,10 +270,10 @@ file
 
 
 
-2008-08-23T06:13:02.000000Z
-5217fb662e6022b36639cd9f696f6c7b
-2008-04-08T07:58:33.286987Z
-2847
+2009-12-22T20:11:50.000000Z
+af2d0c8676e0f6acdbf19d38ed832d7b
+2009-06-30T19:04:49.558264Z
+4669
 mguillem
 has-props
 
@@ -296,7 +296,7 @@ has-props
 
 
 
-21639
+22605
 
 XMLObjectImpl.java
 file
@@ -304,10 +304,10 @@ file
 
 
 
-2008-08-23T06:13:02.000000Z
-9dbf4572aae449b81379c0c722f5d0d7
-2008-04-08T07:58:33.286987Z
-2847
+2009-12-22T20:11:50.000000Z
+8b7c7bb9e6af0bb27f6abddf17d8c5b7
+2008-11-19T17:11:38.108303Z
+3785
 mguillem
 has-props
 
@@ -330,7 +330,7 @@ has-props
 
 
 
-31758
+32201
 
 CVS
 dir
@@ -341,10 +341,10 @@ file
 
 
 
-2008-08-23T06:13:02.000000Z
-213cffe25decede90ca5eda5fc204d2f
-2008-04-08T07:58:33.286987Z
-2847
+2009-12-22T20:11:50.000000Z
+2a4293c5b518731fd4a081db570a6524
+2009-06-30T19:04:49.558264Z
+4669
 mguillem
 has-props
 
@@ -367,7 +367,7 @@ has-props
 
 
 
-11445
+11530
 
 XMLList.java
 file
@@ -375,10 +375,10 @@ file
 
 
 
-2008-08-23T06:13:02.000000Z
-db064c1f20cb944c665d052a490e0a34
-2008-04-08T07:58:33.286987Z
-2847
+2009-12-22T20:11:50.000000Z
+f487055eccb5ed7a9396faa1fcabca2d
+2009-06-30T19:04:49.558264Z
+4669
 mguillem
 has-props
 
@@ -401,5 +401,5 @@ has-props
 
 
 
-23750
+24156
 

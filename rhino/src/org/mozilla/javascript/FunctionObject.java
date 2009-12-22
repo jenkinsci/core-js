@@ -87,9 +87,9 @@ public class FunctionObject extends BaseFunction
      *
      * Otherwise, if the FunctionObject will <i>not</i> be used to define a
      * constructor, the member must be a static Method with parameters
+     * <pre>
      *      (Context cx, Scriptable thisObj, Object[] args,
      *       Function funObj) </pre>
-     * <pre>
      * and an Object result.<p>
      *
      * When the function varargs form is called as part of a function call,
@@ -224,7 +224,7 @@ public class FunctionObject extends BaseFunction
           case JAVA_INT_TYPE:
               if (arg instanceof Integer)
                 return arg;
-            return new Integer(ScriptRuntime.toInt32(arg));
+            return Integer.valueOf(ScriptRuntime.toInt32(arg));
           case JAVA_BOOLEAN_TYPE:
               if (arg instanceof Boolean)
                 return arg;
@@ -235,9 +235,7 @@ public class FunctionObject extends BaseFunction
                 return arg;
             return new Double(ScriptRuntime.toNumber(arg));
           case JAVA_SCRIPTABLE_TYPE:
-            if (arg instanceof Scriptable)
-                return arg;
-            return ScriptRuntime.toObject(cx, scope, arg);
+              return ScriptRuntime.toObjectOrNull(cx, arg, scope);
           case JAVA_OBJECT_TYPE:
             return arg;
           default:

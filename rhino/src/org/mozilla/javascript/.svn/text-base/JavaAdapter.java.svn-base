@@ -204,7 +204,15 @@ public final class JavaAdapter implements IdFunctionCall
         try {
             Object adapter = adapterClass.getConstructor(ctorParms).
                                  newInstance(ctorArgs);
-            return getAdapterSelf(adapterClass, adapter);
+            Object self = getAdapterSelf(adapterClass, adapter);
+            // Return unwrapped JavaAdapter if it implements Scriptable
+            if (self instanceof Wrapper) {
+                Object unwrapped = ((Wrapper) self).unwrap();
+                if (unwrapped instanceof Scriptable) {
+                    return unwrapped;
+                }
+            }
+            return self;
         } catch (Exception ex) {
             throw Context.throwAsScriptRuntimeEx(ex);
         }
@@ -452,30 +460,38 @@ public final class JavaAdapter implements IdFunctionCall
         ArrayList<Method> list = new ArrayList<Method>();
         HashSet<String> skip = new HashSet<String>();
         while (c != null) {
-            Method[] methods = c.getDeclaredMethods();
-            for (int i = 0; i < methods.length; i++) {
-                String methodKey = methods[i].getName() + 
-                    getMethodSignature(methods[i],
-                            methods[i].getParameterTypes());
-                if (skip.contains(methodKey))
-                    continue; // skip this method
-                int mods = methods[i].getModifiers();
-                if (Modifier.isStatic(mods))
-                    continue;
-                if (Modifier.isFinal(mods)) {
-                    // Make sure we don't add a final method to the list
-                    // of overridable methods.
-                    skip.add(methodKey);
-                    continue;
-                }
-                if (Modifier.isPublic(mods) || Modifier.isProtected(mods)) {
-                    list.add(methods[i]);
-                    skip.add(methodKey);
-                }
-            }
+            appendOverridableMethods(c, list, skip);
+            for (Class<?> intf: c.getInterfaces())
+                appendOverridableMethods(intf, list, skip);
             c = c.getSuperclass();
         }
         return list.toArray(new Method[list.size()]);
+    }
+    
+    private static void appendOverridableMethods(Class<?> c, 
+            ArrayList<Method> list, HashSet<String> skip)
+    {
+        Method[] methods = c.getDeclaredMethods();
+        for (int i = 0; i < methods.length; i++) {
+            String methodKey = methods[i].getName() + 
+                getMethodSignature(methods[i],
+                        methods[i].getParameterTypes());
+            if (skip.contains(methodKey))
+                continue; // skip this method
+            int mods = methods[i].getModifiers();
+            if (Modifier.isStatic(mods))
+                continue;
+            if (Modifier.isFinal(mods)) {
+                // Make sure we don't add a final method to the list
+                // of overridable methods.
+                skip.add(methodKey);
+                continue;
+            }
+            if (Modifier.isPublic(mods) || Modifier.isProtected(mods)) {
+                list.add(methods[i]);
+                skip.add(methodKey);
+            }
+        }
     }
 
     static Class<?> loadAdapterClass(String className, byte[] classBytes)
@@ -1127,6 +1143,6 @@ public final class JavaAdapter implements IdFunctionCall
         return array;
     }
 
-    private static final Object FTAG = new Object();
+    private static final Object FTAG = "JavaAdapter";
     private static final int Id_JavaAdapter = 1;
 }

@@ -1,17 +1,17 @@
 K 25
 svn:wc:ra_dav:version-url
-V 77
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/classfile
+V 80
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/classfile
 END
 ClassFileWriter.java
 K 25
 svn:wc:ra_dav:version-url
-V 98
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/classfile/ClassFileWriter.java
+V 101
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/classfile/ClassFileWriter.java
 END
 ByteCode.java
 K 25
 svn:wc:ra_dav:version-url
-V 91
-/svnroot/htmlunit/!svn/ver/2845/trunk/core-js/rhino/src/org/mozilla/classfile/ByteCode.java
+V 94
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/src/org/mozilla/classfile/ByteCode.java
 END

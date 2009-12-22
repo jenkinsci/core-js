@@ -203,6 +203,16 @@ class XMLList extends XMLObjectImpl implements Function {
 
             // Update the list with the new item at location 0.
             replace(0, item(0));
+            
+            if (targetObject != null && targetProperty != null &&
+                targetProperty.getLocalName() != null)
+            {
+                // Now add us to our parent
+                XMLName name2 = XMLName.formProperty(
+                        targetProperty.getNamespace().getUri(),
+                        targetProperty.getLocalName());
+                targetObject.putXMLProperty(name2, this);
+            }
         }
     }
 
@@ -350,7 +360,7 @@ class XMLList extends XMLObjectImpl implements Function {
             enumObjs = new Object[length()];
 
             for (int i = 0; i < enumObjs.length; i++) {
-                enumObjs[i] = new Integer(i);
+                enumObjs[i] = Integer.valueOf(i);
             }
         }
 
@@ -433,14 +443,11 @@ class XMLList extends XMLObjectImpl implements Function {
             XML xml = getXmlFromAnnotation(i);
 
             if (xml != null) {
-                Object o = xml.children();
-                if (o instanceof XMLList) {
-                    XMLList childList = (XMLList)o;
+                XMLList childList = xml.children();
 
-                    int cChildren = childList.length();
-                    for (int j = 0; j < cChildren; j++) {
-                        list.add(childList.item(j));
-                    }
+                int cChildren = childList.length();
+                for (int j = 0; j < cChildren; j++) {
+                    list.add(childList.item(j));
                 }
             }
         }
@@ -667,6 +674,11 @@ class XMLList extends XMLObjectImpl implements Function {
         } else {
             return toXMLString();
         }
+    }
+
+    @Override
+    String toSource(int indent) {
+        return toXMLString();
     }
 
     @Override

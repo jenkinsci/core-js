@@ -1,18 +1,18 @@
-9
+10
 
 dir
-3197
-https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/trunk/core-js/rhino/src/org/mozilla/javascript/serialize/CVS
+5285
+https://htmlunit.svn.sourceforge.net/svnroot/htmlunit/tags/core-js-2.6/rhino/src/org/mozilla/javascript/serialize/CVS
 https://htmlunit.svn.sourceforge.net/svnroot/htmlunit
 
 
 
-2008-04-08T07:55:39.341028Z
-2845
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 
 
-svn:special svn:externals svn:needs-lock
+
 
 
 
@@ -32,7 +32,7 @@ file
 
 
 
-2008-08-23T06:09:27.000000Z
+2009-12-22T20:11:33.000000Z
 b75ad75645332177e5235639c7a15770
 2008-04-08T07:55:39.341028Z
 2845
@@ -66,7 +66,7 @@ file
 
 
 
-2008-08-23T06:09:27.000000Z
+2009-12-22T20:11:33.000000Z
 015ef85f990c0ef81ed462d8bb8b9e36
 2008-04-08T07:55:39.341028Z
 2845
@@ -100,10 +100,10 @@ file
 
 
 
-2008-08-23T06:09:27.000000Z
-2cb02e0f46420391943e3d83a6c3df7f
-2008-04-08T07:55:39.341028Z
-2845
+2009-12-22T20:11:33.000000Z
+14ce14b52f3e85334678cd5faad810fb
+2009-06-30T18:36:38.095948Z
+4666
 mguillem
 
 

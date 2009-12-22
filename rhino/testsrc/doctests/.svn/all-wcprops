@@ -1,35 +1,215 @@
 K 25
 svn:wc:ra_dav:version-url
-V 68
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/doctests
+V 71
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests
 END
-canonicalize.doctest
+473761.doctest
 K 25
 svn:wc:ra_dav:version-url
-V 89
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/doctests/canonicalize.doctest
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/473761.doctest
 END
-test2.doctest
+object.getownpropertydescriptor.doctest
 K 25
 svn:wc:ra_dav:version-url
-V 82
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/doctests/test2.doctest
+V 111
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/object.getownpropertydescriptor.doctest
+END
+object.defineproperties.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/object.defineproperties.doctest
+END
+xmlOptions.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/xmlOptions.doctest
+END
+480758.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/480758.doctest
+END
+Counter.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/Counter.doctest
+END
+393794.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/393794.doctest
 END
 tail-call-in-try.doctest
 K 25
 svn:wc:ra_dav:version-url
+V 96
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/tail-call-in-try.doctest
+END
+util.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/util.js
+END
+object.freeze.doctest
+K 25
+svn:wc:ra_dav:version-url
 V 93
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/doctests/tail-call-in-try.doctest
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/object.freeze.doctest
 END
 iterable.doctest
 K 25
 svn:wc:ra_dav:version-url
-V 85
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/doctests/iterable.doctest
+V 88
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/iterable.doctest
+END
+object.seal.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/object.seal.doctest
+END
+canonicalize.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/canonicalize.doctest
+END
+434041.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/434041.doctest
+END
+object.getownpropertynames.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/object.getownpropertynames.doctest
+END
+object.defineproperty.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/object.defineproperty.doctest
+END
+441417.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/441417.doctest
+END
+Matrix.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/Matrix.doctest
+END
+442922.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/442922.doctest
+END
+object.extensible.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/object.extensible.doctest
+END
+439530.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/439530.doctest
+END
+object.create.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/object.create.doctest
+END
+477233.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/477233.doctest
+END
+368019.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/368019.doctest
 END
 413838.doctest
 K 25
 svn:wc:ra_dav:version-url
-V 83
-/svnroot/htmlunit/!svn/ver/2849/trunk/core-js/rhino/testsrc/doctests/413838.doctest
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/413838.doctest
+END
+object.keys.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/object.keys.doctest
+END
+433878.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/433878.doctest
+END
+467396.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/467396.doctest
+END
+iteratorKeys.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/iteratorKeys.doctest
+END
+serialize.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/serialize.doctest
+END
+object.issealed.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/object.issealed.doctest
+END
+object.getprototypeof.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/object.getprototypeof.doctest
+END
+test2.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/test2.doctest
+END
+429121.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/429121.doctest
+END
+object.isfrozen.doctest
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/testsrc/doctests/object.isfrozen.doctest
 END

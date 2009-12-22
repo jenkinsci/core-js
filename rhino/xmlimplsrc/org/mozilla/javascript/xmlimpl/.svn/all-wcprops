@@ -1,71 +1,71 @@
 K 25
 svn:wc:ra_dav:version-url
-V 93
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl
+V 96
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl
 END
 XML.java
 K 25
 svn:wc:ra_dav:version-url
-V 102
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XML.java
+V 105
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XML.java
 END
 XmlProcessor.java
 K 25
 svn:wc:ra_dav:version-url
-V 111
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XmlProcessor.java
+V 114
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XmlProcessor.java
 END
 QName.java
 K 25
 svn:wc:ra_dav:version-url
-V 104
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/QName.java
+V 107
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/QName.java
 END
 XMLName.java
 K 25
 svn:wc:ra_dav:version-url
-V 106
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XMLName.java
+V 109
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XMLName.java
 END
 XMLWithScope.java
 K 25
 svn:wc:ra_dav:version-url
-V 111
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XMLWithScope.java
+V 114
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XMLWithScope.java
 END
 XmlNode.java
 K 25
 svn:wc:ra_dav:version-url
-V 106
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XmlNode.java
+V 109
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XmlNode.java
 END
 XMLCtor.java
 K 25
 svn:wc:ra_dav:version-url
-V 106
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XMLCtor.java
+V 109
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XMLCtor.java
 END
 XMLLibImpl.java
 K 25
 svn:wc:ra_dav:version-url
-V 109
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XMLLibImpl.java
+V 112
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XMLLibImpl.java
 END
 XMLObjectImpl.java
 K 25
 svn:wc:ra_dav:version-url
-V 112
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XMLObjectImpl.java
+V 115
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XMLObjectImpl.java
 END
 Namespace.java
 K 25
 svn:wc:ra_dav:version-url
-V 108
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/Namespace.java
+V 111
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/Namespace.java
 END
 XMLList.java
 K 25
 svn:wc:ra_dav:version-url
-V 106
-/svnroot/htmlunit/!svn/ver/2847/trunk/core-js/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XMLList.java
+V 109
+/svnroot/htmlunit/!svn/ver/4898/tags/core-js-2.6/rhino/xmlimplsrc/org/mozilla/javascript/xmlimpl/XMLList.java
 END

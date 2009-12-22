@@ -479,9 +479,9 @@ class JavaMembers
         for (int tableCursor = 0; tableCursor != 2; ++tableCursor) {
             boolean isStatic = (tableCursor == 0);
             Map<String,Object> ht = isStatic ? staticMembers : members;
-            for (String name: ht.keySet()) {
+            for (Map.Entry<String, Object> entry: ht.entrySet()) {
                 MemberBox[] methodBoxes;
-                Object value = ht.get(name);
+                Object value = entry.getValue();
                 if (value instanceof Method) {
                     methodBoxes = new MemberBox[1];
                     methodBoxes[0] = new MemberBox((Method)value);
@@ -499,7 +499,7 @@ class JavaMembers
                 if (scope != null) {
                     ScriptRuntime.setFunctionProtoAndParent(fun, scope);
                 }
-                ht.put(name, fun);
+                ht.put(entry.getKey(), fun);
             }
         }
 
@@ -598,9 +598,17 @@ class JavaMembers
 
                     // If we already have a member by this name, don't do this
                     // property.
-                    if (ht.containsKey(beanPropertyName)
-                            || toAdd.containsKey(beanPropertyName)) {
+                    if (toAdd.containsKey(beanPropertyName))
                         continue;
+                    Object v = ht.get(beanPropertyName);
+                    if (v != null) {
+                        // A private field shouldn't mask a public getter/setter
+                        if (!includePrivate || !(v instanceof Member) ||
+                            !Modifier.isPrivate(((Member)v).getModifiers()))
+
+                        {
+                            continue;
+                        }
                     }
 
                     // Find the getter method, or if there is none, the is-
@@ -667,7 +675,7 @@ class JavaMembers
       if (includePrivate && cl != ScriptRuntime.ClassClass) {
           try {
               Constructor<?>[] cons = cl.getDeclaredConstructors();
-              Constructor.setAccessible(cons, true);
+              AccessibleObject.setAccessible(cons, true);
 
               return cons;
           } catch (SecurityException e) {
@@ -816,7 +824,6 @@ class JavaMembers
                                    Class<?> staticType, boolean includeProtected)
     {
         JavaMembers members;
-        scope = ScriptableObject.getTopLevelScope(scope);
         ClassCache cache = ClassCache.get(scope);
         Map<Class<?>,JavaMembers> ct = cache.getClassCacheMap();
 
@@ -827,7 +834,8 @@ class JavaMembers
                 return members;
             }
             try {
-                members = new JavaMembers(scope, cl, includeProtected);
+                members = new JavaMembers(cache.getAssociatedScope(), cl, 
+                        includeProtected);
                 break;
             } catch (SecurityException e) {
                 // Reflection may fail for objects that are in a restricted

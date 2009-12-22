@@ -46,7 +46,6 @@ import java.io.FilenameFilter;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.ArrayList;
 
 /**
  * The class of exceptions thrown by the JavaScript engine.
@@ -248,12 +247,11 @@ public abstract class RhinoException extends RuntimeException
      */
     public String getScriptStackTrace(FilenameFilter filter)
     {
-        List<String> interpreterStack;
+        List<String> interpreterStack = null;
         Evaluator interpreter = Context.createInterpreter();
-        if (interpreter != null)
+        if (interpreter != null) {
             interpreterStack = interpreter.getScriptStack(this);
-        else
-            interpreterStack = new ArrayList<String>();
+        }
         int interpreterStackIndex = 0;
         StringBuffer buffer = new StringBuffer();
         String lineSeparator = SecurityUtilities.getSystemProperty("line.separator");
@@ -270,6 +268,7 @@ public abstract class RhinoException extends RuntimeException
                 buffer.append(e.getLineNumber());
                 buffer.append(lineSeparator);
             } else if (interpreterStack != null &&
+                interpreterStack.size() > interpreterStackIndex && 
                 "org.mozilla.javascript.Interpreter".equals(e.getClassName()) &&
                 "interpretLoop".equals(e.getMethodName()))
             {
